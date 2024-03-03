@@ -14,6 +14,8 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: cognipilot
       url-base: https://github.com/CogniPilot
+    - name: nxp
+      url-base: https://github.com/NXPHoverGames/
 
   projects:
     - name: zephyr
@@ -28,12 +30,12 @@ manifest:
           - cmsis
           - ubxlib
     - name: synapse_tinyframe
-      remote: cognipilot
-      revision: 672c6d30d5e8cc24f720edd3b915889dc0bc5fab # main 12/9/23
+      remote: nxp
+      revision: nxp-cup
       path: modules/lib/synapse_tinyframe
     - name: synapse_protobuf
-      remote: cognipilot
-      revision: a161990062d4ed40ea4b39d66877a45f340eb622 # main 12/12/23
+      remote: nxp
+      revision: nxp-cup
       path: modules/lib/synapse_protobuf
     - name: ubxlib
       remote: cognipilot

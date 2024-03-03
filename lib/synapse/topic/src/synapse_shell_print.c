@@ -112,6 +112,23 @@ int snprint_bezier_trajectory(char* buf, size_t n, synapse_msgs_BezierTrajectory
     }
     return offset;
 }
+int snprint_pixy_vector(char* buf, size_t n, synapse_msgs_PixyVector* m){
+    size_t offset = 0;
+    if (m->has_header) {
+        offset += snprint_header(buf + offset, n - offset, &m->header);
+    }
+    
+    offset += snprintf(buf + offset, n - offset, "m0_x0: %u\n", m->m0_x0);
+    offset += snprintf(buf + offset, n - offset, "m0_y0: %u\n", m->m0_y0);
+    offset += snprintf(buf + offset, n - offset, "m0_x1: %u\n", m->m0_x1);
+    offset += snprintf(buf + offset, n - offset, "m0_y1: %u\n", m->m0_y1);
+    offset += snprintf(buf + offset, n - offset, "m1_x0: %u\n", m->m1_x0);
+    offset += snprintf(buf + offset, n - offset, "m1_y0: %u\n", m->m1_y0);
+    offset += snprintf(buf + offset, n - offset, "m1_x1: %u\n", m->m1_x1);
+    offset += snprintf(buf + offset, n - offset, "m1_y1: %u\n", m->m1_y1);    
+    
+    return offset;
+}
 
 int snprint_status(char* buf, size_t n, synapse_msgs_Status* m)
 {

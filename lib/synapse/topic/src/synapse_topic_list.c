@@ -112,6 +112,7 @@ ZROS_TOPIC_DEFINE(actuators_manual, synapse_msgs_Actuators);
 ZROS_TOPIC_DEFINE(altimeter, synapse_msgs_Altimeter);
 ZROS_TOPIC_DEFINE(battery_state, synapse_msgs_BatteryState);
 ZROS_TOPIC_DEFINE(bezier_trajectory, synapse_msgs_BezierTrajectory);
+ZROS_TOPIC_DEFINE(pixy_vector, synapse_msgs_PixyVector);
 ZROS_TOPIC_DEFINE(clock_offset, synapse_msgs_Time);
 ZROS_TOPIC_DEFINE(cmd_vel, synapse_msgs_Twist);
 ZROS_TOPIC_DEFINE(status, synapse_msgs_Status);
@@ -131,6 +132,7 @@ static struct zros_topic* topic_list[] = {
     &topic_altimeter,
     &topic_battery_state,
     &topic_bezier_trajectory,
+    &topic_pixy_vector,
     &topic_clock_offset,
     &topic_cmd_vel,
     &topic_status,

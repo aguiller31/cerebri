@@ -11,6 +11,7 @@
 #include <synapse_protobuf/altimeter.pb.h>
 #include <synapse_protobuf/battery_state.pb.h>
 #include <synapse_protobuf/bezier_trajectory.pb.h>
+#include <synapse_protobuf/pixy_vector.pb.h>
 #include <synapse_protobuf/imu.pb.h>
 #include <synapse_protobuf/joy.pb.h>
 #include <synapse_protobuf/led_array.pb.h>
@@ -60,6 +61,7 @@ ZROS_TOPIC_DECLARE(topic_actuators_manual, synapse_msgs_Actuators);
 ZROS_TOPIC_DECLARE(topic_altimeter, synapse_msgs_Altimeter);
 ZROS_TOPIC_DECLARE(topic_battery_state, synapse_msgs_BatteryState);
 ZROS_TOPIC_DECLARE(topic_bezier_trajectory, synapse_msgs_BezierTrajectory);
+ZROS_TOPIC_DECLARE(topic_pixy_vector, synapse_msgs_PixyVector);
 ZROS_TOPIC_DECLARE(topic_clock_offset, synapse_msgs_Time);
 ZROS_TOPIC_DECLARE(topic_cmd_vel, synapse_msgs_Twist);
 ZROS_TOPIC_DECLARE(topic_estimator_odometry, synapse_msgs_Odometry);

@@ -16,6 +16,7 @@ int snprint_altimeter(char* buf, size_t n, synapse_msgs_Altimeter* m);
 int snprint_battery_state(char* buf, size_t n, synapse_msgs_BatteryState* m);
 int snprint_bezier_curve(char* buf, size_t n, synapse_msgs_BezierCurve* m);
 int snprint_bezier_trajectory(char* buf, size_t n, synapse_msgs_BezierTrajectory* m);
+int snprint_pixy_vector(char* buf, size_t n, synapse_msgs_PixyVector* m);
 int snprint_header(char* buf, size_t n, synapse_msgs_Header* m);
 int snprint_imu(char* buf, size_t n, synapse_msgs_Imu* m);
 int snprint_joy(char* buf, size_t n, synapse_msgs_Joy* m);
