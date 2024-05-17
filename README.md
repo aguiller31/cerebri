@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ce projet concerne le développement d'une voiture autonome, nommée **mrb3rb**, pour participer à la **NXP Cup 2024**. La NXP Cup est une compétition mondiale où des étudiants de différentes universités conçoivent et programment des voitures miniatures pour naviguer sur une piste de course.
+Ce projet concerne le développement d'une voiture autonome, nommée **MR-B3RB**, pour participer à la **NXP Cup 2024**. La NXP Cup est une compétition mondiale où des étudiants de différentes universités conçoivent et programment des voitures miniatures pour naviguer sur une piste de course.
 
 
 <p style="text-align: center;" align="center">
