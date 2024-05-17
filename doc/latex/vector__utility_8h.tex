@@ -1,0 +1,646 @@
+\doxysection{Référence du fichier src/vector\+\_\+utility.h}
+\hypertarget{vector__utility_8h}{}\label{vector__utility_8h}\index{src/vector\_utility.h@{src/vector\_utility.h}}
+
+
+Fichier contenant les fonctions relatives à la manipulation des vecteurs.  
+
+
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{vector__utility_8h_aa887fc84531d36897211d6da4da08a60}{VECTEUR\+\_\+\+FALSE}}~0
+\item 
+\#define \mbox{\hyperlink{vector__utility_8h_aeda523a86d44657d12d683f38e4aefd9}{VECTEUR\+\_\+\+TRUE}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{vector__utility_8h_afdbeb62c1ad1fb6c2d8203b33333a4bd}{add\+Vecteurs\+To\+List}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs, \mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}ctx, int nb\+Vecteurs)
+\begin{DoxyCompactList}\small\item\em Ajoute des vecteurs à une liste dans un contexte donné. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a0214820aa0e96769833214c15dae7fc7}{arrange\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Arrange les vecteurs pour que y0 soit toujours inférieur à y1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_ac12ca86cfbbae8b1e0ce6fa2dc00501a}{build\+Second\+Vecteur}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs, \mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Construit le deuxième vecteur à partir du premier vecteur et du contexte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_ab89210364e6e0b9d1f0f499cd930e017}{calculate\+Average\+Vecteur}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs, int size, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}average\+\_\+vecteur)
+\begin{DoxyCompactList}\small\item\em Calcule le vecteur moyen à partir d\textquotesingle{}un ensemble de vecteurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a20f029f5aa0c0be0c45cc88b9c8af3db}{calculate\+Average\+Vecteurs\+Without\+Outliers}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}average\+\_\+vecteurs, int nb\+Vecteurs)
+\begin{DoxyCompactList}\small\item\em Calcule le vecteur moyen sans les vecteurs aberrants. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__utility_8h_a7a49d2312b145b9d40f7677eac2be18c}{calculate\+Vecteurs\+Distance}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} v1, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} v2)
+\begin{DoxyCompactList}\small\item\em Calcule la distance entre deux vecteurs D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a407844980ddbb48b580d305a523b2825}{DVecteurs\+To\+Pixy\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs, synapse\+\_\+msgs\+\_\+\+Pixy\+Vector \texorpdfstring{$\ast$}{*}pixy\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Convertit des vecteurs D en vecteurs Pixy. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__utility_8h_ac48a727028dd9399bd4a9ac9a8957e76}{erreur\+\_\+relative}} (double valeur\+\_\+approchee, double valeur\+\_\+exacte)
+\begin{DoxyCompactList}\small\item\em Calcule l\textquotesingle{}erreur relative entre une valeur approchée et une valeur exacte. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__utility_8h_a0c8192d6169a5355dc083c0f88f12b04}{get\+Middle\+Angle}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs)
+\begin{DoxyCompactList}\small\item\em Calcule l\textquotesingle{}angle moyen entre deux vecteurs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{vector__utility_8h_acb625582b95800c29178cb77fbcc31ae}{get\+Nb\+Of\+Non\+Null\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Obtient le nombre de vecteurs non nuls dans un ensemble de vecteurs D. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__utility_8h_a02e5448faddd959cf739a2f84d6bdc61}{get\+Point\+Distance}} (\mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}} a, \mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}} b)
+\begin{DoxyCompactList}\small\item\em Calcule la distance entre deux points. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{vector__utility_8h_aa933761f46968a5148368e94c99d0549}{get\+Vecteur\+Angle}} (\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} vecteur)
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}angle d\textquotesingle{}un vecteur par rapport à l\textquotesingle{}axe des y. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{vector__utility_8h_a2765a25668dca15effaf7c5feddd634a}{get\+Vecteur\+Side}} (\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} vecteur, double middle)
+\begin{DoxyCompactList}\small\item\em Obtient le côté sur lequel se trouve un vecteur par rapport à une position donnée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{vector__utility_8h_a46cb529a7ae2008598a633414f6dd896}{get\+XWith\+YIn\+Equation\+Of\+Vecteur}} (\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} v, double y)
+\begin{DoxyCompactList}\small\item\em Obtient la coordonnée x correspondante à une coordonnée y dans l\textquotesingle{}équation d\textquotesingle{}un vecteur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{vector__utility_8h_adaf59e955efddda0c56b3dd8cee2f22d}{is\+Null\+Vecteur}} (\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} \texorpdfstring{$\ast$}{*}vecteur)
+\begin{DoxyCompactList}\small\item\em Vérifie si un vecteur est nul. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a1ed6dadd12910eb844d4237ad903ae63}{maximize\+DVector}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Maximise la longueur des vecteurs jusqu\textquotesingle{}au bord de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_ab742eefe47fb67ab9d3603bb52152417}{merge\+Same\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Fusionne deux vecteurs s\textquotesingle{}ils sont suffisamment proches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a82365890f3c54dc3bd5cc1db905b74f4}{pixy\+Vecteurs\+To\+DVecteurs}} (synapse\+\_\+msgs\+\_\+\+Pixy\+Vector pixy\+\_\+vector, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Convertit des vecteurs Pixy en vecteurs D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a65eed98fefec6b65dd53be763d7b3bcb}{print\+Vecteur}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Affiche les coordonnées des vecteurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a1899b7bbf8a9eaf9f535b62eb9158c8f}{remove\+Large\+Angle\+Vecteur}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Supprime les vecteurs avec un angle supérieur à une certaine limite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_ac8b1b94ec2d50ce20c78e7f45265ef26}{remove\+Outliers\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs, int \texorpdfstring{$\ast$}{*}size, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}avg\+\_\+vector, double threshold)
+\begin{DoxyCompactList}\small\item\em Supprime les vecteurs aberrants d\textquotesingle{}un ensemble de vecteurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_ab8d682ca3712ccbe4068df1e9d4ac384}{remove\+Small\+Vecteurs}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Supprime les vecteurs avec une longueur inférieure à une certaine valeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_aa50b14ad09aa2d3f49cec4e624c34ea1}{save\+Reference\+Vecteur}} (\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs)
+\begin{DoxyCompactList}\small\item\em Enregistre un vecteur de référence dans un contexte donné. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector__utility_8h_a7253e143d1aeb74579a16f0c951768f3}{set\+Null\+Vecteur}} (\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}vecteurs)
+\begin{DoxyCompactList}\small\item\em Initialise un vecteur à zéro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{vector__utility_8h_a4904cc82627458fdf6672ccc0b2802c7}{epsilon}} = 1e-\/9
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions relatives à la manipulation des vecteurs. 
+
+\begin{DoxyAuthor}{Auteur}
+Antoine Guillermin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/04-\/18 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+501 
+\end{DoxyVersion}
+
+
+Définition dans le fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{vector__utility_8h_aa887fc84531d36897211d6da4da08a60}\label{vector__utility_8h_aa887fc84531d36897211d6da4da08a60} 
+\index{vector\_utility.h@{vector\_utility.h}!VECTEUR\_FALSE@{VECTEUR\_FALSE}}
+\index{VECTEUR\_FALSE@{VECTEUR\_FALSE}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{VECTEUR\_FALSE}{VECTEUR\_FALSE}}
+{\footnotesize\ttfamily \#define VECTEUR\+\_\+\+FALSE~0}
+
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00012}{12}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_aeda523a86d44657d12d683f38e4aefd9}\label{vector__utility_8h_aeda523a86d44657d12d683f38e4aefd9} 
+\index{vector\_utility.h@{vector\_utility.h}!VECTEUR\_TRUE@{VECTEUR\_TRUE}}
+\index{VECTEUR\_TRUE@{VECTEUR\_TRUE}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{VECTEUR\_TRUE}{VECTEUR\_TRUE}}
+{\footnotesize\ttfamily \#define VECTEUR\+\_\+\+TRUE~1}
+
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00013}{13}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{vector__utility_8h_afdbeb62c1ad1fb6c2d8203b33333a4bd}\label{vector__utility_8h_afdbeb62c1ad1fb6c2d8203b33333a4bd} 
+\index{vector\_utility.h@{vector\_utility.h}!addVecteursToList@{addVecteursToList}}
+\index{addVecteursToList@{addVecteursToList}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{addVecteursToList()}{addVecteursToList()}}
+{\footnotesize\ttfamily void add\+Vecteurs\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs,  }\item[{\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{int}]{nb\+Vecteurs }\end{DoxyParamCaption})}
+
+
+
+Ajoute des vecteurs à une liste dans un contexte donné. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à ajouter. \\
+\hline
+{\em ctx} & Le contexte dans lequel ajouter les vecteurs. \\
+\hline
+{\em nb\+Vecteurs} & Le nombre de vecteurs à ajouter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00305}{305}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a0214820aa0e96769833214c15dae7fc7}\label{vector__utility_8h_a0214820aa0e96769833214c15dae7fc7} 
+\index{vector\_utility.h@{vector\_utility.h}!arrangeVecteurs@{arrangeVecteurs}}
+\index{arrangeVecteurs@{arrangeVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{arrangeVecteurs()}{arrangeVecteurs()}}
+{\footnotesize\ttfamily void arrange\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Arrange les vecteurs pour que y0 soit toujours inférieur à y1. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à arranger. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00287}{287}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ac12ca86cfbbae8b1e0ce6fa2dc00501a}\label{vector__utility_8h_ac12ca86cfbbae8b1e0ce6fa2dc00501a} 
+\index{vector\_utility.h@{vector\_utility.h}!buildSecondVecteur@{buildSecondVecteur}}
+\index{buildSecondVecteur@{buildSecondVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{buildSecondVecteur()}{buildSecondVecteur()}}
+{\footnotesize\ttfamily void build\+Second\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs,  }\item[{\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}}]{ctx }\end{DoxyParamCaption})}
+
+
+
+Construit le deuxième vecteur à partir du premier vecteur et du contexte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à utiliser. \\
+\hline
+{\em ctx} & Le contexte. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00501}{501}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ab89210364e6e0b9d1f0f499cd930e017}\label{vector__utility_8h_ab89210364e6e0b9d1f0f499cd930e017} 
+\index{vector\_utility.h@{vector\_utility.h}!calculateAverageVecteur@{calculateAverageVecteur}}
+\index{calculateAverageVecteur@{calculateAverageVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{calculateAverageVecteur()}{calculateAverageVecteur()}}
+{\footnotesize\ttfamily void calculate\+Average\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs,  }\item[{int}]{size,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{average\+\_\+vecteur }\end{DoxyParamCaption})}
+
+
+
+Calcule le vecteur moyen à partir d\textquotesingle{}un ensemble de vecteurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à utiliser. \\
+\hline
+{\em size} & La taille de l\textquotesingle{}ensemble de vecteurs. \\
+\hline
+{\em average\+\_\+vecteur} & Le vecteur moyen résultant. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00312}{312}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a20f029f5aa0c0be0c45cc88b9c8af3db}\label{vector__utility_8h_a20f029f5aa0c0be0c45cc88b9c8af3db} 
+\index{vector\_utility.h@{vector\_utility.h}!calculateAverageVecteursWithoutOutliers@{calculateAverageVecteursWithoutOutliers}}
+\index{calculateAverageVecteursWithoutOutliers@{calculateAverageVecteursWithoutOutliers}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{calculateAverageVecteursWithoutOutliers()}{calculateAverageVecteursWithoutOutliers()}}
+{\footnotesize\ttfamily void calculate\+Average\+Vecteurs\+Without\+Outliers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{average\+\_\+vecteurs,  }\item[{int}]{nb\+Vecteurs }\end{DoxyParamCaption})}
+
+
+
+Calcule le vecteur moyen sans les vecteurs aberrants. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à utiliser. \\
+\hline
+{\em average\+\_\+vecteurs} & Le vecteur moyen résultant. \\
+\hline
+{\em nb\+Vecteurs} & Le nombre de vecteurs à utiliser. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00353}{353}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a7a49d2312b145b9d40f7677eac2be18c}\label{vector__utility_8h_a7a49d2312b145b9d40f7677eac2be18c} 
+\index{vector\_utility.h@{vector\_utility.h}!calculateVecteursDistance@{calculateVecteursDistance}}
+\index{calculateVecteursDistance@{calculateVecteursDistance}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{calculateVecteursDistance()}{calculateVecteursDistance()}}
+{\footnotesize\ttfamily double calculate\+Vecteurs\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{v1,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Calcule la distance entre deux vecteurs D. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em v1} & Le premier vecteur. \\
+\hline
+{\em v2} & Le deuxième vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+double La distance entre les deux vecteurs. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00329}{329}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a407844980ddbb48b580d305a523b2825}\label{vector__utility_8h_a407844980ddbb48b580d305a523b2825} 
+\index{vector\_utility.h@{vector\_utility.h}!DVecteursToPixyVecteurs@{DVecteursToPixyVecteurs}}
+\index{DVecteursToPixyVecteurs@{DVecteursToPixyVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{DVecteursToPixyVecteurs()}{DVecteursToPixyVecteurs()}}
+{\footnotesize\ttfamily void DVecteurs\+To\+Pixy\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs,  }\item[{synapse\+\_\+msgs\+\_\+\+Pixy\+Vector \texorpdfstring{$\ast$}{*}}]{pixy\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Convertit des vecteurs D en vecteurs Pixy. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs D. \\
+\hline
+{\em pixy\+\_\+vector} & Le vecteur Pixy résultant. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00255}{255}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ac48a727028dd9399bd4a9ac9a8957e76}\label{vector__utility_8h_ac48a727028dd9399bd4a9ac9a8957e76} 
+\index{vector\_utility.h@{vector\_utility.h}!erreur\_relative@{erreur\_relative}}
+\index{erreur\_relative@{erreur\_relative}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{erreur\_relative()}{erreur\_relative()}}
+{\footnotesize\ttfamily double erreur\+\_\+relative (\begin{DoxyParamCaption}\item[{double}]{valeur\+\_\+approchee,  }\item[{double}]{valeur\+\_\+exacte }\end{DoxyParamCaption})}
+
+
+
+Calcule l\textquotesingle{}erreur relative entre une valeur approchée et une valeur exacte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em valeur\+\_\+approchee} & La valeur approchée. \\
+\hline
+{\em valeur\+\_\+exacte} & La valeur exacte. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+double L\textquotesingle{}erreur relative. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00453}{453}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a0c8192d6169a5355dc083c0f88f12b04}\label{vector__utility_8h_a0c8192d6169a5355dc083c0f88f12b04} 
+\index{vector\_utility.h@{vector\_utility.h}!getMiddleAngle@{getMiddleAngle}}
+\index{getMiddleAngle@{getMiddleAngle}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getMiddleAngle()}{getMiddleAngle()}}
+{\footnotesize\ttfamily double get\+Middle\+Angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Calcule l\textquotesingle{}angle moyen entre deux vecteurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à utiliser. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+double L\textquotesingle{}angle moyen. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00533}{533}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_acb625582b95800c29178cb77fbcc31ae}\label{vector__utility_8h_acb625582b95800c29178cb77fbcc31ae} 
+\index{vector\_utility.h@{vector\_utility.h}!getNbOfNonNullVecteurs@{getNbOfNonNullVecteurs}}
+\index{getNbOfNonNullVecteurs@{getNbOfNonNullVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getNbOfNonNullVecteurs()}{getNbOfNonNullVecteurs()}}
+{\footnotesize\ttfamily int get\+Nb\+Of\+Non\+Null\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Obtient le nombre de vecteurs non nuls dans un ensemble de vecteurs D. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs D. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Le nombre de vecteurs non nuls. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00278}{278}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a02e5448faddd959cf739a2f84d6bdc61}\label{vector__utility_8h_a02e5448faddd959cf739a2f84d6bdc61} 
+\index{vector\_utility.h@{vector\_utility.h}!getPointDistance@{getPointDistance}}
+\index{getPointDistance@{getPointDistance}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getPointDistance()}{getPointDistance()}}
+{\footnotesize\ttfamily double get\+Point\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}}}]{a,  }\item[{\mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Calcule la distance entre deux points. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & Le premier point. \\
+\hline
+{\em b} & Le deuxième point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+double La distance entre les deux points. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00498}{498}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_aa933761f46968a5148368e94c99d0549}\label{vector__utility_8h_aa933761f46968a5148368e94c99d0549} 
+\index{vector\_utility.h@{vector\_utility.h}!getVecteurAngle@{getVecteurAngle}}
+\index{getVecteurAngle@{getVecteurAngle}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getVecteurAngle()}{getVecteurAngle()}}
+{\footnotesize\ttfamily double get\+Vecteur\+Angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}]{vecteur }\end{DoxyParamCaption})}
+
+
+
+Obtient l\textquotesingle{}angle d\textquotesingle{}un vecteur par rapport à l\textquotesingle{}axe des y. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteur} & Le vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+double L\textquotesingle{}angle du vecteur. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00438}{438}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a2765a25668dca15effaf7c5feddd634a}\label{vector__utility_8h_a2765a25668dca15effaf7c5feddd634a} 
+\index{vector\_utility.h@{vector\_utility.h}!getVecteurSide@{getVecteurSide}}
+\index{getVecteurSide@{getVecteurSide}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getVecteurSide()}{getVecteurSide()}}
+{\footnotesize\ttfamily int get\+Vecteur\+Side (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}]{vecteur,  }\item[{double}]{middle }\end{DoxyParamCaption})}
+
+
+
+Obtient le côté sur lequel se trouve un vecteur par rapport à une position donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteur} & Le vecteur. \\
+\hline
+{\em middle} & La position de référence. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Le côté du vecteur. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00446}{446}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a46cb529a7ae2008598a633414f6dd896}\label{vector__utility_8h_a46cb529a7ae2008598a633414f6dd896} 
+\index{vector\_utility.h@{vector\_utility.h}!getXWithYInEquationOfVecteur@{getXWithYInEquationOfVecteur}}
+\index{getXWithYInEquationOfVecteur@{getXWithYInEquationOfVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{getXWithYInEquationOfVecteur()}{getXWithYInEquationOfVecteur()}}
+{\footnotesize\ttfamily int get\+XWith\+YIn\+Equation\+Of\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}]{v,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Obtient la coordonnée x correspondante à une coordonnée y dans l\textquotesingle{}équation d\textquotesingle{}un vecteur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em v} & Le vecteur. \\
+\hline
+{\em y} & La coordonnée y. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int La coordonnée x. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00479}{479}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_adaf59e955efddda0c56b3dd8cee2f22d}\label{vector__utility_8h_adaf59e955efddda0c56b3dd8cee2f22d} 
+\index{vector\_utility.h@{vector\_utility.h}!isNullVecteur@{isNullVecteur}}
+\index{isNullVecteur@{isNullVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{isNullVecteur()}{isNullVecteur()}}
+{\footnotesize\ttfamily int is\+Null\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} \texorpdfstring{$\ast$}{*}}]{vecteur }\end{DoxyParamCaption})}
+
+
+
+Vérifie si un vecteur est nul. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteur} & Le vecteur à vérifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int Retourne VECTEUR\+\_\+\+FALSE si le vecteur est non nul, sinon VECTEUR\+\_\+\+TRUE. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00270}{270}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a1ed6dadd12910eb844d4237ad903ae63}\label{vector__utility_8h_a1ed6dadd12910eb844d4237ad903ae63} 
+\index{vector\_utility.h@{vector\_utility.h}!maximizeDVector@{maximizeDVector}}
+\index{maximizeDVector@{maximizeDVector}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{maximizeDVector()}{maximizeDVector()}}
+{\footnotesize\ttfamily void maximize\+DVector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Maximise la longueur des vecteurs jusqu\textquotesingle{}au bord de l\textquotesingle{}image. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à traiter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00484}{484}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ab742eefe47fb67ab9d3603bb52152417}\label{vector__utility_8h_ab742eefe47fb67ab9d3603bb52152417} 
+\index{vector\_utility.h@{vector\_utility.h}!mergeSameVecteurs@{mergeSameVecteurs}}
+\index{mergeSameVecteurs@{mergeSameVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{mergeSameVecteurs()}{mergeSameVecteurs()}}
+{\footnotesize\ttfamily void merge\+Same\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Fusionne deux vecteurs s\textquotesingle{}ils sont suffisamment proches. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à fusionner. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00417}{417}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a82365890f3c54dc3bd5cc1db905b74f4}\label{vector__utility_8h_a82365890f3c54dc3bd5cc1db905b74f4} 
+\index{vector\_utility.h@{vector\_utility.h}!pixyVecteursToDVecteurs@{pixyVecteursToDVecteurs}}
+\index{pixyVecteursToDVecteurs@{pixyVecteursToDVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{pixyVecteursToDVecteurs()}{pixyVecteursToDVecteurs()}}
+{\footnotesize\ttfamily void pixy\+Vecteurs\+To\+DVecteurs (\begin{DoxyParamCaption}\item[{synapse\+\_\+msgs\+\_\+\+Pixy\+Vector}]{pixy\+\_\+vector,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Convertit des vecteurs Pixy en vecteurs D. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pixy\+\_\+vector} & Le vecteur Pixy. \\
+\hline
+{\em vecteurs} & Les vecteurs D résultants. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00241}{241}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a65eed98fefec6b65dd53be763d7b3bcb}\label{vector__utility_8h_a65eed98fefec6b65dd53be763d7b3bcb} 
+\index{vector\_utility.h@{vector\_utility.h}!printVecteur@{printVecteur}}
+\index{printVecteur@{printVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{printVecteur()}{printVecteur()}}
+{\footnotesize\ttfamily void print\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Affiche les coordonnées des vecteurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à afficher. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00223}{223}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a1899b7bbf8a9eaf9f535b62eb9158c8f}\label{vector__utility_8h_a1899b7bbf8a9eaf9f535b62eb9158c8f} 
+\index{vector\_utility.h@{vector\_utility.h}!removeLargeAngleVecteur@{removeLargeAngleVecteur}}
+\index{removeLargeAngleVecteur@{removeLargeAngleVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{removeLargeAngleVecteur()}{removeLargeAngleVecteur()}}
+{\footnotesize\ttfamily void remove\+Large\+Angle\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Supprime les vecteurs avec un angle supérieur à une certaine limite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à traiter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00362}{362}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ac8b1b94ec2d50ce20c78e7f45265ef26}\label{vector__utility_8h_ac8b1b94ec2d50ce20c78e7f45265ef26} 
+\index{vector\_utility.h@{vector\_utility.h}!removeOutliersVecteurs@{removeOutliersVecteurs}}
+\index{removeOutliersVecteurs@{removeOutliersVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{removeOutliersVecteurs()}{removeOutliersVecteurs()}}
+{\footnotesize\ttfamily void remove\+Outliers\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs,  }\item[{int \texorpdfstring{$\ast$}{*}}]{size,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{avg\+\_\+vector,  }\item[{double}]{threshold }\end{DoxyParamCaption})}
+
+
+
+Supprime les vecteurs aberrants d\textquotesingle{}un ensemble de vecteurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à traiter. \\
+\hline
+{\em size} & La taille de l\textquotesingle{}ensemble de vecteurs. \\
+\hline
+{\em avg\+\_\+vector} & Le vecteur moyen. \\
+\hline
+{\em threshold} & Le seuil pour déterminer les vecteurs aberrants. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00341}{341}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_ab8d682ca3712ccbe4068df1e9d4ac384}\label{vector__utility_8h_ab8d682ca3712ccbe4068df1e9d4ac384} 
+\index{vector\_utility.h@{vector\_utility.h}!removeSmallVecteurs@{removeSmallVecteurs}}
+\index{removeSmallVecteurs@{removeSmallVecteurs}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{removeSmallVecteurs()}{removeSmallVecteurs()}}
+{\footnotesize\ttfamily void remove\+Small\+Vecteurs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Supprime les vecteurs avec une longueur inférieure à une certaine valeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Les vecteurs à traiter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00389}{389}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_aa50b14ad09aa2d3f49cec4e624c34ea1}\label{vector__utility_8h_aa50b14ad09aa2d3f49cec4e624c34ea1} 
+\index{vector\_utility.h@{vector\_utility.h}!saveReferenceVecteur@{saveReferenceVecteur}}
+\index{saveReferenceVecteur@{saveReferenceVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{saveReferenceVecteur()}{saveReferenceVecteur()}}
+{\footnotesize\ttfamily void save\+Reference\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Enregistre un vecteur de référence dans un contexte donné. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ctx} & Le contexte dans lequel enregistrer le vecteur de référence. \\
+\hline
+{\em vecteurs} & Le vecteur de référence. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00457}{457}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+\Hypertarget{vector__utility_8h_a7253e143d1aeb74579a16f0c951768f3}\label{vector__utility_8h_a7253e143d1aeb74579a16f0c951768f3} 
+\index{vector\_utility.h@{vector\_utility.h}!setNullVecteur@{setNullVecteur}}
+\index{setNullVecteur@{setNullVecteur}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{setNullVecteur()}{setNullVecteur()}}
+{\footnotesize\ttfamily void set\+Null\+Vecteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \texorpdfstring{$\ast$}{*}}]{vecteurs }\end{DoxyParamCaption})}
+
+
+
+Initialise un vecteur à zéro. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vecteurs} & Le vecteur à initialiser. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00232}{232}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{vector__utility_8h_a4904cc82627458fdf6672ccc0b2802c7}\label{vector__utility_8h_a4904cc82627458fdf6672ccc0b2802c7} 
+\index{vector\_utility.h@{vector\_utility.h}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!vector\_utility.h@{vector\_utility.h}}
+\doxysubsubsection{\texorpdfstring{epsilon}{epsilon}}
+{\footnotesize\ttfamily double epsilon = 1e-\/9}
+
+
+
+Définition à la ligne \mbox{\hyperlink{vector__utility_8h_source_l00015}{15}} du fichier \mbox{\hyperlink{vector__utility_8h_source}{vector\+\_\+utility.\+h}}.
+

@@ -1,0 +1,1121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NXP CUP: Référence du fichier src/vector_utility.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="NXP-Cup-Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">NXP CUP<span id="projectnumber">&#160;1.501</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('vector__utility_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier vector_utility.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions relatives à la manipulation des vecteurs.  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="vector__utility_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa887fc84531d36897211d6da4da08a60" id="r_aa887fc84531d36897211d6da4da08a60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#aa887fc84531d36897211d6da4da08a60">VECTEUR_FALSE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa887fc84531d36897211d6da4da08a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda523a86d44657d12d683f38e4aefd9" id="r_aeda523a86d44657d12d683f38e4aefd9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#aeda523a86d44657d12d683f38e4aefd9">VECTEUR_TRUE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aeda523a86d44657d12d683f38e4aefd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:afdbeb62c1ad1fb6c2d8203b33333a4bd" id="r_afdbeb62c1ad1fb6c2d8203b33333a4bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#afdbeb62c1ad1fb6c2d8203b33333a4bd">addVecteursToList</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> vecteurs, <a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *ctx, int nbVecteurs)</td></tr>
+<tr class="memdesc:afdbeb62c1ad1fb6c2d8203b33333a4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute des vecteurs à une liste dans un contexte donné.  <br /></td></tr>
+<tr class="separator:afdbeb62c1ad1fb6c2d8203b33333a4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0214820aa0e96769833214c15dae7fc7" id="r_a0214820aa0e96769833214c15dae7fc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a0214820aa0e96769833214c15dae7fc7">arrangeVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a0214820aa0e96769833214c15dae7fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrange les vecteurs pour que y0 soit toujours inférieur à y1.  <br /></td></tr>
+<tr class="separator:a0214820aa0e96769833214c15dae7fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac12ca86cfbbae8b1e0ce6fa2dc00501a" id="r_ac12ca86cfbbae8b1e0ce6fa2dc00501a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ac12ca86cfbbae8b1e0ce6fa2dc00501a">buildSecondVecteur</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs, <a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *ctx)</td></tr>
+<tr class="memdesc:ac12ca86cfbbae8b1e0ce6fa2dc00501a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit le deuxième vecteur à partir du premier vecteur et du contexte.  <br /></td></tr>
+<tr class="separator:ac12ca86cfbbae8b1e0ce6fa2dc00501a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89210364e6e0b9d1f0f499cd930e017" id="r_ab89210364e6e0b9d1f0f499cd930e017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ab89210364e6e0b9d1f0f499cd930e017">calculateAverageVecteur</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs, int size, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *average_vecteur)</td></tr>
+<tr class="memdesc:ab89210364e6e0b9d1f0f499cd930e017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le vecteur moyen à partir d'un ensemble de vecteurs.  <br /></td></tr>
+<tr class="separator:ab89210364e6e0b9d1f0f499cd930e017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f029f5aa0c0be0c45cc88b9c8af3db" id="r_a20f029f5aa0c0be0c45cc88b9c8af3db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a20f029f5aa0c0be0c45cc88b9c8af3db">calculateAverageVecteursWithoutOutliers</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *average_vecteurs, int nbVecteurs)</td></tr>
+<tr class="memdesc:a20f029f5aa0c0be0c45cc88b9c8af3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le vecteur moyen sans les vecteurs aberrants.  <br /></td></tr>
+<tr class="separator:a20f029f5aa0c0be0c45cc88b9c8af3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a49d2312b145b9d40f7677eac2be18c" id="r_a7a49d2312b145b9d40f7677eac2be18c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a7a49d2312b145b9d40f7677eac2be18c">calculateVecteursDistance</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> v1, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> v2)</td></tr>
+<tr class="memdesc:a7a49d2312b145b9d40f7677eac2be18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la distance entre deux vecteurs D.  <br /></td></tr>
+<tr class="separator:a7a49d2312b145b9d40f7677eac2be18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407844980ddbb48b580d305a523b2825" id="r_a407844980ddbb48b580d305a523b2825"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a407844980ddbb48b580d305a523b2825">DVecteursToPixyVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> vecteurs, synapse_msgs_PixyVector *pixy_vector)</td></tr>
+<tr class="memdesc:a407844980ddbb48b580d305a523b2825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit des vecteurs D en vecteurs Pixy.  <br /></td></tr>
+<tr class="separator:a407844980ddbb48b580d305a523b2825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48a727028dd9399bd4a9ac9a8957e76" id="r_ac48a727028dd9399bd4a9ac9a8957e76"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ac48a727028dd9399bd4a9ac9a8957e76">erreur_relative</a> (double valeur_approchee, double valeur_exacte)</td></tr>
+<tr class="memdesc:ac48a727028dd9399bd4a9ac9a8957e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule l'erreur relative entre une valeur approchée et une valeur exacte.  <br /></td></tr>
+<tr class="separator:ac48a727028dd9399bd4a9ac9a8957e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8192d6169a5355dc083c0f88f12b04" id="r_a0c8192d6169a5355dc083c0f88f12b04"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a0c8192d6169a5355dc083c0f88f12b04">getMiddleAngle</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> vecteurs)</td></tr>
+<tr class="memdesc:a0c8192d6169a5355dc083c0f88f12b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule l'angle moyen entre deux vecteurs.  <br /></td></tr>
+<tr class="separator:a0c8192d6169a5355dc083c0f88f12b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb625582b95800c29178cb77fbcc31ae" id="r_acb625582b95800c29178cb77fbcc31ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#acb625582b95800c29178cb77fbcc31ae">getNbOfNonNullVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:acb625582b95800c29178cb77fbcc31ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient le nombre de vecteurs non nuls dans un ensemble de vecteurs D.  <br /></td></tr>
+<tr class="separator:acb625582b95800c29178cb77fbcc31ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e5448faddd959cf739a2f84d6bdc61" id="r_a02e5448faddd959cf739a2f84d6bdc61"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a02e5448faddd959cf739a2f84d6bdc61">getPointDistance</a> (<a class="el" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a> a, <a class="el" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a> b)</td></tr>
+<tr class="memdesc:a02e5448faddd959cf739a2f84d6bdc61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la distance entre deux points.  <br /></td></tr>
+<tr class="separator:a02e5448faddd959cf739a2f84d6bdc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa933761f46968a5148368e94c99d0549" id="r_aa933761f46968a5148368e94c99d0549"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#aa933761f46968a5148368e94c99d0549">getVecteurAngle</a> (<a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a> vecteur)</td></tr>
+<tr class="memdesc:aa933761f46968a5148368e94c99d0549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'angle d'un vecteur par rapport à l'axe des y.  <br /></td></tr>
+<tr class="separator:aa933761f46968a5148368e94c99d0549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2765a25668dca15effaf7c5feddd634a" id="r_a2765a25668dca15effaf7c5feddd634a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a2765a25668dca15effaf7c5feddd634a">getVecteurSide</a> (<a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a> vecteur, double middle)</td></tr>
+<tr class="memdesc:a2765a25668dca15effaf7c5feddd634a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient le côté sur lequel se trouve un vecteur par rapport à une position donnée.  <br /></td></tr>
+<tr class="separator:a2765a25668dca15effaf7c5feddd634a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46cb529a7ae2008598a633414f6dd896" id="r_a46cb529a7ae2008598a633414f6dd896"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a46cb529a7ae2008598a633414f6dd896">getXWithYInEquationOfVecteur</a> (<a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a> v, double y)</td></tr>
+<tr class="memdesc:a46cb529a7ae2008598a633414f6dd896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient la coordonnée x correspondante à une coordonnée y dans l'équation d'un vecteur.  <br /></td></tr>
+<tr class="separator:a46cb529a7ae2008598a633414f6dd896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf59e955efddda0c56b3dd8cee2f22d" id="r_adaf59e955efddda0c56b3dd8cee2f22d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#adaf59e955efddda0c56b3dd8cee2f22d">isNullVecteur</a> (<a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a> *vecteur)</td></tr>
+<tr class="memdesc:adaf59e955efddda0c56b3dd8cee2f22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si un vecteur est nul.  <br /></td></tr>
+<tr class="separator:adaf59e955efddda0c56b3dd8cee2f22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed6dadd12910eb844d4237ad903ae63" id="r_a1ed6dadd12910eb844d4237ad903ae63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a1ed6dadd12910eb844d4237ad903ae63">maximizeDVector</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a1ed6dadd12910eb844d4237ad903ae63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximise la longueur des vecteurs jusqu'au bord de l'image.  <br /></td></tr>
+<tr class="separator:a1ed6dadd12910eb844d4237ad903ae63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab742eefe47fb67ab9d3603bb52152417" id="r_ab742eefe47fb67ab9d3603bb52152417"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ab742eefe47fb67ab9d3603bb52152417">mergeSameVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:ab742eefe47fb67ab9d3603bb52152417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fusionne deux vecteurs s'ils sont suffisamment proches.  <br /></td></tr>
+<tr class="separator:ab742eefe47fb67ab9d3603bb52152417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82365890f3c54dc3bd5cc1db905b74f4" id="r_a82365890f3c54dc3bd5cc1db905b74f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a82365890f3c54dc3bd5cc1db905b74f4">pixyVecteursToDVecteurs</a> (synapse_msgs_PixyVector pixy_vector, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a82365890f3c54dc3bd5cc1db905b74f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertit des vecteurs Pixy en vecteurs D.  <br /></td></tr>
+<tr class="separator:a82365890f3c54dc3bd5cc1db905b74f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65eed98fefec6b65dd53be763d7b3bcb" id="r_a65eed98fefec6b65dd53be763d7b3bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a65eed98fefec6b65dd53be763d7b3bcb">printVecteur</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a65eed98fefec6b65dd53be763d7b3bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les coordonnées des vecteurs.  <br /></td></tr>
+<tr class="separator:a65eed98fefec6b65dd53be763d7b3bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1899b7bbf8a9eaf9f535b62eb9158c8f" id="r_a1899b7bbf8a9eaf9f535b62eb9158c8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a1899b7bbf8a9eaf9f535b62eb9158c8f">removeLargeAngleVecteur</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a1899b7bbf8a9eaf9f535b62eb9158c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les vecteurs avec un angle supérieur à une certaine limite.  <br /></td></tr>
+<tr class="separator:a1899b7bbf8a9eaf9f535b62eb9158c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b1b94ec2d50ce20c78e7f45265ef26" id="r_ac8b1b94ec2d50ce20c78e7f45265ef26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ac8b1b94ec2d50ce20c78e7f45265ef26">removeOutliersVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs, int *size, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *avg_vector, double threshold)</td></tr>
+<tr class="memdesc:ac8b1b94ec2d50ce20c78e7f45265ef26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les vecteurs aberrants d'un ensemble de vecteurs.  <br /></td></tr>
+<tr class="separator:ac8b1b94ec2d50ce20c78e7f45265ef26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d682ca3712ccbe4068df1e9d4ac384" id="r_ab8d682ca3712ccbe4068df1e9d4ac384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#ab8d682ca3712ccbe4068df1e9d4ac384">removeSmallVecteurs</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:ab8d682ca3712ccbe4068df1e9d4ac384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les vecteurs avec une longueur inférieure à une certaine valeur.  <br /></td></tr>
+<tr class="separator:ab8d682ca3712ccbe4068df1e9d4ac384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50b14ad09aa2d3f49cec4e624c34ea1" id="r_aa50b14ad09aa2d3f49cec4e624c34ea1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#aa50b14ad09aa2d3f49cec4e624c34ea1">saveReferenceVecteur</a> (<a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *ctx, <a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> vecteurs)</td></tr>
+<tr class="memdesc:aa50b14ad09aa2d3f49cec4e624c34ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre un vecteur de référence dans un contexte donné.  <br /></td></tr>
+<tr class="separator:aa50b14ad09aa2d3f49cec4e624c34ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7253e143d1aeb74579a16f0c951768f3" id="r_a7253e143d1aeb74579a16f0c951768f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a7253e143d1aeb74579a16f0c951768f3">setNullVecteur</a> (<a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *vecteurs)</td></tr>
+<tr class="memdesc:a7253e143d1aeb74579a16f0c951768f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un vecteur à zéro.  <br /></td></tr>
+<tr class="separator:a7253e143d1aeb74579a16f0c951768f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4904cc82627458fdf6672ccc0b2802c7" id="r_a4904cc82627458fdf6672ccc0b2802c7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector__utility_8h.html#a4904cc82627458fdf6672ccc0b2802c7">epsilon</a> = 1e-9</td></tr>
+<tr class="separator:a4904cc82627458fdf6672ccc0b2802c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions relatives à la manipulation des vecteurs. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Antoine Guillermin </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024-04-18 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.501 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="aa887fc84531d36897211d6da4da08a60" name="aa887fc84531d36897211d6da4da08a60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa887fc84531d36897211d6da4da08a60">&#9670;&#160;</a></span>VECTEUR_FALSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VECTEUR_FALSE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00012">12</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="aeda523a86d44657d12d683f38e4aefd9" name="aeda523a86d44657d12d683f38e4aefd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeda523a86d44657d12d683f38e4aefd9">&#9670;&#160;</a></span>VECTEUR_TRUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VECTEUR_TRUE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00013">13</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="afdbeb62c1ad1fb6c2d8203b33333a4bd" name="afdbeb62c1ad1fb6c2d8203b33333a4bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbeb62c1ad1fb6c2d8203b33333a4bd">&#9670;&#160;</a></span>addVecteursToList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addVecteursToList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbVecteurs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute des vecteurs à une liste dans un contexte donné. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à ajouter. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Le contexte dans lequel ajouter les vecteurs. </td></tr>
+    <tr><td class="paramname">nbVecteurs</td><td>Le nombre de vecteurs à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00305">305</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a0214820aa0e96769833214c15dae7fc7" name="a0214820aa0e96769833214c15dae7fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0214820aa0e96769833214c15dae7fc7">&#9670;&#160;</a></span>arrangeVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void arrangeVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arrange les vecteurs pour que y0 soit toujours inférieur à y1. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à arranger. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00287">287</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ac12ca86cfbbae8b1e0ce6fa2dc00501a" name="ac12ca86cfbbae8b1e0ce6fa2dc00501a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12ca86cfbbae8b1e0ce6fa2dc00501a">&#9670;&#160;</a></span>buildSecondVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void buildSecondVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construit le deuxième vecteur à partir du premier vecteur et du contexte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à utiliser. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Le contexte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00501">501</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ab89210364e6e0b9d1f0f499cd930e017" name="ab89210364e6e0b9d1f0f499cd930e017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab89210364e6e0b9d1f0f499cd930e017">&#9670;&#160;</a></span>calculateAverageVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calculateAverageVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>average_vecteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule le vecteur moyen à partir d'un ensemble de vecteurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à utiliser. </td></tr>
+    <tr><td class="paramname">size</td><td>La taille de l'ensemble de vecteurs. </td></tr>
+    <tr><td class="paramname">average_vecteur</td><td>Le vecteur moyen résultant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00312">312</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a20f029f5aa0c0be0c45cc88b9c8af3db" name="a20f029f5aa0c0be0c45cc88b9c8af3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20f029f5aa0c0be0c45cc88b9c8af3db">&#9670;&#160;</a></span>calculateAverageVecteursWithoutOutliers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calculateAverageVecteursWithoutOutliers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>average_vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbVecteurs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule le vecteur moyen sans les vecteurs aberrants. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à utiliser. </td></tr>
+    <tr><td class="paramname">average_vecteurs</td><td>Le vecteur moyen résultant. </td></tr>
+    <tr><td class="paramname">nbVecteurs</td><td>Le nombre de vecteurs à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00353">353</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a7a49d2312b145b9d40f7677eac2be18c" name="a7a49d2312b145b9d40f7677eac2be18c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a49d2312b145b9d40f7677eac2be18c">&#9670;&#160;</a></span>calculateVecteursDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculateVecteursDistance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la distance entre deux vecteurs D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td>Le premier vecteur. </td></tr>
+    <tr><td class="paramname">v2</td><td>Le deuxième vecteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>double La distance entre les deux vecteurs. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00329">329</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a407844980ddbb48b580d305a523b2825" name="a407844980ddbb48b580d305a523b2825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407844980ddbb48b580d305a523b2825">&#9670;&#160;</a></span>DVecteursToPixyVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DVecteursToPixyVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">synapse_msgs_PixyVector *&#160;</td>
+          <td class="paramname"><em>pixy_vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convertit des vecteurs D en vecteurs Pixy. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs D. </td></tr>
+    <tr><td class="paramname">pixy_vector</td><td>Le vecteur Pixy résultant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00255">255</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ac48a727028dd9399bd4a9ac9a8957e76" name="ac48a727028dd9399bd4a9ac9a8957e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48a727028dd9399bd4a9ac9a8957e76">&#9670;&#160;</a></span>erreur_relative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double erreur_relative </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valeur_approchee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valeur_exacte</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule l'erreur relative entre une valeur approchée et une valeur exacte. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valeur_approchee</td><td>La valeur approchée. </td></tr>
+    <tr><td class="paramname">valeur_exacte</td><td>La valeur exacte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>double L'erreur relative. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00453">453</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a0c8192d6169a5355dc083c0f88f12b04" name="a0c8192d6169a5355dc083c0f88f12b04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8192d6169a5355dc083c0f88f12b04">&#9670;&#160;</a></span>getMiddleAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getMiddleAngle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule l'angle moyen entre deux vecteurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à utiliser. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>double L'angle moyen. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00533">533</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="acb625582b95800c29178cb77fbcc31ae" name="acb625582b95800c29178cb77fbcc31ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb625582b95800c29178cb77fbcc31ae">&#9670;&#160;</a></span>getNbOfNonNullVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNbOfNonNullVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtient le nombre de vecteurs non nuls dans un ensemble de vecteurs D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs D. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Le nombre de vecteurs non nuls. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00278">278</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a02e5448faddd959cf739a2f84d6bdc61" name="a02e5448faddd959cf739a2f84d6bdc61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02e5448faddd959cf739a2f84d6bdc61">&#9670;&#160;</a></span>getPointDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getPointDistance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la distance entre deux points. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Le premier point. </td></tr>
+    <tr><td class="paramname">b</td><td>Le deuxième point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>double La distance entre les deux points. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00498">498</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="aa933761f46968a5148368e94c99d0549" name="aa933761f46968a5148368e94c99d0549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa933761f46968a5148368e94c99d0549">&#9670;&#160;</a></span>getVecteurAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getVecteurAngle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtient l'angle d'un vecteur par rapport à l'axe des y. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteur</td><td>Le vecteur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>double L'angle du vecteur. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00438">438</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a2765a25668dca15effaf7c5feddd634a" name="a2765a25668dca15effaf7c5feddd634a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2765a25668dca15effaf7c5feddd634a">&#9670;&#160;</a></span>getVecteurSide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getVecteurSide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>middle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtient le côté sur lequel se trouve un vecteur par rapport à une position donnée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteur</td><td>Le vecteur. </td></tr>
+    <tr><td class="paramname">middle</td><td>La position de référence. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Le côté du vecteur. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00446">446</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a46cb529a7ae2008598a633414f6dd896" name="a46cb529a7ae2008598a633414f6dd896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46cb529a7ae2008598a633414f6dd896">&#9670;&#160;</a></span>getXWithYInEquationOfVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getXWithYInEquationOfVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a>&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtient la coordonnée x correspondante à une coordonnée y dans l'équation d'un vecteur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Le vecteur. </td></tr>
+    <tr><td class="paramname">y</td><td>La coordonnée y. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int La coordonnée x. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00479">479</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="adaf59e955efddda0c56b3dd8cee2f22d" name="adaf59e955efddda0c56b3dd8cee2f22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf59e955efddda0c56b3dd8cee2f22d">&#9670;&#160;</a></span>isNullVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isNullVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si un vecteur est nul. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteur</td><td>Le vecteur à vérifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int Retourne VECTEUR_FALSE si le vecteur est non nul, sinon VECTEUR_TRUE. </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00270">270</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a1ed6dadd12910eb844d4237ad903ae63" name="a1ed6dadd12910eb844d4237ad903ae63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed6dadd12910eb844d4237ad903ae63">&#9670;&#160;</a></span>maximizeDVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maximizeDVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximise la longueur des vecteurs jusqu'au bord de l'image. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à traiter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00484">484</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ab742eefe47fb67ab9d3603bb52152417" name="ab742eefe47fb67ab9d3603bb52152417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab742eefe47fb67ab9d3603bb52152417">&#9670;&#160;</a></span>mergeSameVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mergeSameVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fusionne deux vecteurs s'ils sont suffisamment proches. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à fusionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00417">417</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a82365890f3c54dc3bd5cc1db905b74f4" name="a82365890f3c54dc3bd5cc1db905b74f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82365890f3c54dc3bd5cc1db905b74f4">&#9670;&#160;</a></span>pixyVecteursToDVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pixyVecteursToDVecteurs </td>
+          <td>(</td>
+          <td class="paramtype">synapse_msgs_PixyVector&#160;</td>
+          <td class="paramname"><em>pixy_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convertit des vecteurs Pixy en vecteurs D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixy_vector</td><td>Le vecteur Pixy. </td></tr>
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs D résultants. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00241">241</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a65eed98fefec6b65dd53be763d7b3bcb" name="a65eed98fefec6b65dd53be763d7b3bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65eed98fefec6b65dd53be763d7b3bcb">&#9670;&#160;</a></span>printVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche les coordonnées des vecteurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00223">223</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a1899b7bbf8a9eaf9f535b62eb9158c8f" name="a1899b7bbf8a9eaf9f535b62eb9158c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1899b7bbf8a9eaf9f535b62eb9158c8f">&#9670;&#160;</a></span>removeLargeAngleVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeLargeAngleVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime les vecteurs avec un angle supérieur à une certaine limite. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à traiter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00362">362</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ac8b1b94ec2d50ce20c78e7f45265ef26" name="ac8b1b94ec2d50ce20c78e7f45265ef26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8b1b94ec2d50ce20c78e7f45265ef26">&#9670;&#160;</a></span>removeOutliersVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeOutliersVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>avg_vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>threshold</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime les vecteurs aberrants d'un ensemble de vecteurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à traiter. </td></tr>
+    <tr><td class="paramname">size</td><td>La taille de l'ensemble de vecteurs. </td></tr>
+    <tr><td class="paramname">avg_vector</td><td>Le vecteur moyen. </td></tr>
+    <tr><td class="paramname">threshold</td><td>Le seuil pour déterminer les vecteurs aberrants. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00341">341</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8d682ca3712ccbe4068df1e9d4ac384" name="ab8d682ca3712ccbe4068df1e9d4ac384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d682ca3712ccbe4068df1e9d4ac384">&#9670;&#160;</a></span>removeSmallVecteurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeSmallVecteurs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime les vecteurs avec une longueur inférieure à une certaine valeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Les vecteurs à traiter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00389">389</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="aa50b14ad09aa2d3f49cec4e624c34ea1" name="aa50b14ad09aa2d3f49cec4e624c34ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50b14ad09aa2d3f49cec4e624c34ea1">&#9670;&#160;</a></span>saveReferenceVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveReferenceVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>&#160;</td>
+          <td class="paramname"><em>vecteurs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enregistre un vecteur de référence dans un contexte donné. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Le contexte dans lequel enregistrer le vecteur de référence. </td></tr>
+    <tr><td class="paramname">vecteurs</td><td>Le vecteur de référence. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00457">457</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<a id="a7253e143d1aeb74579a16f0c951768f3" name="a7253e143d1aeb74579a16f0c951768f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7253e143d1aeb74579a16f0c951768f3">&#9670;&#160;</a></span>setNullVecteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setNullVecteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a> *&#160;</td>
+          <td class="paramname"><em>vecteurs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise un vecteur à zéro. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vecteurs</td><td>Le vecteur à initialiser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00232">232</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a4904cc82627458fdf6672ccc0b2802c7" name="a4904cc82627458fdf6672ccc0b2802c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4904cc82627458fdf6672ccc0b2802c7">&#9670;&#160;</a></span>epsilon</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double epsilon = 1e-9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="vector__utility_8h_source.html#l00015">15</a> du fichier <a class="el" href="vector__utility_8h_source.html">vector_utility.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="vector__utility_8h.html">vector_utility.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

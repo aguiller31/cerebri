@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NXP CUP:  Fichier source de src/velocity.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="NXP-Cup-Logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">NXP CUP<span id="projectnumber">&#160;1.501</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('velocity_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">velocity.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="velocity_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef VELOCITY</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define VELOCITY</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;casadi/gen/b3rb.h&quot;</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;math.h&quot;</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;zephyr/logging/log.h&gt;</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;zephyr/kernel.h&gt;</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// Définitions des constantes</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="velocity_8h.html#a0c0ca5341e1f18622b917da882f6abec">   19</a></span><span class="preprocessor">#define VECTOR_ON_THE_LEFT 1 </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="velocity_8h.html#aabe2f4c791fb7506c1b1fb524e4a14df">   20</a></span><span class="preprocessor">#define VECTOR_ON_THE_RIGHT 0 </span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="velocity_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">   21</a></span><span class="preprocessor">#define M_PI 3.14159265358979323846 </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="velocity_8h.html#aafd9a8a07447ca0c0c79ae00e8e5f7e9">   22</a></span><span class="preprocessor">#define IMAGE_WIDTH 78 </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="velocity_8h.html#a24688fc70fd5d6fe90a57e03a34ebc1c">   23</a></span><span class="preprocessor">#define IMAGE_HEIGHT 51 </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="velocity_8h.html#af0ca7bdedeb5e23e912736431a00cde7">   24</a></span><span class="preprocessor">#define STEER_MAX 0.6 </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="velocity_8h.html#ad7c86544bbb397ff14a6bb7f288f63a0">   25</a></span><span class="preprocessor">#define SPEED_MAX 36.0 </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="velocity_8h.html#aaa6f04f6f0d7cf1008a53279acf49f07">   26</a></span><span class="preprocessor">#define WHEEL_RADIUS 34 </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="velocity_8h.html#a13902ac92146457d699b7b13f38bb984">   27</a></span><span class="preprocessor">#define LEFT_OR_RIGHT_COEFF -1 </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="velocity_8h.html#a76de77d410daf16e90bc1281a8208133">   28</a></span><span class="preprocessor">#define AUTO_START </span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// Paramètres pour éliminer les vecteurs &quot;mauvais&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="velocity_8h.html#a06fa257f69dbff32545cc5ab9a4d25b5">   31</a></span><span class="preprocessor">#define MIN_VECTOR_LENGTH 20 </span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="velocity_8h.html#a6221d514b4ea1fcc5462d17110bcbe46">   32</a></span><span class="preprocessor">#define NO_LINE_TIME 3500 </span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="velocity_8h.html#a7f5a8c9bbec8b32d488ebcd470bf80d6">   33</a></span><span class="preprocessor">#define NB_OF_VECTS_TO_WAIT 1 </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="velocity_8h.html#a84edbd3567c0622d9da6378be9271e9d">   34</a></span><span class="preprocessor">#define MAX_DISTANCE_FOR_SAME_VECT 30 </span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="velocity_8h.html#ab1b024d1e4c8f1aa8c7759b6b8d93a9d">   35</a></span><span class="preprocessor">#define SAME_VECTOR_THRESHOLD 20 </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="velocity_8h.html#a8742c2a5b97bcfe90d7244a8d1748d15">   36</a></span><span class="preprocessor">#define IMAGE_WIDTH_THRESHOLD 0 </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="velocity_8h.html#a2675c9e5db64b847086b89e722867653">   37</a></span><span class="preprocessor">#define MAX_VECTOR_ANGLE_THRESHOLD 60 </span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// Paramètres de vitesse en %</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="velocity_8h.html#a09d7ef90d4461b6eca91720abb0c68c8">   40</a></span><span class="preprocessor">#define NO_VECTOR_SPEED 50.0 </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Paramètres de rotation en %</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="velocity_8h.html#ab383f715933d87ae2719699c5705c4fe">   43</a></span><span class="preprocessor">#define INCREASE_STEER_IF_NO_VECTORS 5.0 </span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="velocity_8h.html#a9b3e15e09bc960db231f40561b03a78b">   44</a></span><span class="preprocessor">#define INCREASE_STEER_IF_NO_VECTORS_THRESHOLD 60.0 </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// Non modifiable</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="velocity_8h.html#a5a469920b16bb69d617be8fca7a2f1de">   47</a></span><span class="preprocessor">#define SPEED_FACTOR SPEED_MAX/100.0 </span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define STEER_FACTOR STEER_MAX/100.0 </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &lt;zros/private/zros_node_struct.h&gt;</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &lt;zros/private/zros_pub_struct.h&gt;</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;zros/private/zros_sub_struct.h&gt;</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;zros/zros_node.h&gt;</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &lt;zros/zros_pub.h&gt;</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &lt;zros/zros_sub.h&gt;</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#include &lt;cerebri/core/casadi.h&gt;</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &lt;stdio.h&gt;</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &lt;math.h&gt;</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="velocity_8h.html#ac4f86b90339f797473f6e49620d4152b">   61</a></span><span class="preprocessor">#include &quot;mixing.h&quot;</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="velocity_8h.html#ad411dcac8cd42bd8dd200489b2bba5b2">   63</a></span><span class="preprocessor">#define MY_STACK_SIZE 3072 </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="velocity_8h.html#af779536d343f909d8fcca2d754555ddd">   64</a></span><span class="preprocessor">#define MY_PRIORITY 4 </span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="velocity_8h.html#a4f14ad7099522cbd48ea384f3e35b8f1">   66</a></span><a class="code hl_function" href="velocity_8h.html#a4f14ad7099522cbd48ea384f3e35b8f1">LOG_MODULE_REGISTER</a>(b3rb_velocity, CONFIG_CEREBRI_B3RB_LOG_LEVEL); </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// Direction à (%)        0    10    20    30    40    50    60    70    80    90   100   100</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="velocity_8h.html#ae681e84221da39fb28ff260603605ef3">   69</a></span><span class="keyword">const</span> <a class="code hl_variable" href="velocity_8h.html#ae681e84221da39fb28ff260603605ef3">steers</a>[] = {0.30, 0.30, 0.30, 0.30, 0.30, 0.35, 0.40, 0.70, 0.80, 0.85, 0.90, 0.90}; </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="velocity_8h.html#adfe6a447923fe08f846499693a99da9e">   70</a></span><span class="keyword">const</span> <a class="code hl_variable" href="velocity_8h.html#adfe6a447923fe08f846499693a99da9e">speeds</a>[] = {100.0,100.0,100.0,90.0, 80.0, 80.0, 70.0, 70.0, 60.0, 60.0, 60.0, 60.0}; </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="struct___point.html">   75</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct___point.html">_Point</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="struct___point.html#af88b946fb90d5f08b5fb740c70e98c10">   76</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct___point.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>; </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="struct___point.html#ab927965981178aa1fba979a37168db2a">   77</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct___point.html#ab927965981178aa1fba979a37168db2a">y</a>; </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">   78</a></span>} <a class="code hl_typedef" href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a>;</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct___vecteur.html">   83</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct___vecteur.html">_Vecteur</a> {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="struct___vecteur.html#ada41fb90e7bd48a9a24a7d53bc7af27d">   84</a></span>    <a class="code hl_struct" href="struct___point.html">Point</a> <a class="code hl_variable" href="struct___vecteur.html#ada41fb90e7bd48a9a24a7d53bc7af27d">tail</a>; </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="struct___vecteur.html#a4b5def2c4a827407505a2238695214e9">   85</a></span>    <a class="code hl_struct" href="struct___point.html">Point</a> <a class="code hl_variable" href="struct___vecteur.html#a4b5def2c4a827407505a2238695214e9">head</a>; </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">   86</a></span>} <a class="code hl_typedef" href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a>;</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="};">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="struct___d_vecteur.html">   91</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct___d_vecteur.html">_DVecteur</a> {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="struct___d_vecteur.html#a855f313045383d6e1161968bb8c9c197">   92</a></span>    <a class="code hl_struct" href="struct___vecteur.html">Vecteur</a> <a class="code hl_variable" href="struct___d_vecteur.html#a855f313045383d6e1161968bb8c9c197">m</a>[2]; </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">   93</a></span>} <a class="code hl_typedef" href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a>;</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="};">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="struct__context.html">   98</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct__context.html">_context</a> {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="struct__context.html#a49ecc237d427a8fbc9cba4ffd8da4de0">   99</a></span>    <span class="keyword">struct </span>zros_node <a class="code hl_variable" href="struct__context.html#a49ecc237d427a8fbc9cba4ffd8da4de0">node</a>; </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="struct__context.html#a904a8586ac25ba8cfd35714c650c25c9">  100</a></span>    synapse_msgs_Twist <a class="code hl_variable" href="struct__context.html#a904a8586ac25ba8cfd35714c650c25c9">cmd_vel</a>; </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="struct__context.html#aa2acf905c92f724a6061196b32b0b52f">  101</a></span>    synapse_msgs_Status <a class="code hl_variable" href="struct__context.html#aa2acf905c92f724a6061196b32b0b52f">status</a>; </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="struct__context.html#ab1ede8ccfb9d08dc8fde671aabf1b392">  102</a></span>    synapse_msgs_Actuators <a class="code hl_variable" href="struct__context.html#ab1ede8ccfb9d08dc8fde671aabf1b392">actuators</a>; </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="struct__context.html#a3b84ed55b31b462d78a49b5d48b018eb">  103</a></span>    synapse_msgs_Actuators <a class="code hl_variable" href="struct__context.html#a3b84ed55b31b462d78a49b5d48b018eb">actuators_manual</a>; </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="struct__context.html#af77a544b46b121570b9c510da77cdc36">  104</a></span>    synapse_msgs_PixyVector <a class="code hl_variable" href="struct__context.html#af77a544b46b121570b9c510da77cdc36">pixy_vector</a>; </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="struct__context.html#aa975ae312af2187e563077f286268123">  105</a></span>    <span class="keyword">struct </span>zros_sub sub_status, sub_cmd_vel, sub_actuators_manual, <a class="code hl_variable" href="struct__context.html#aa975ae312af2187e563077f286268123">sub_pixy_vector</a>; </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="struct__context.html#a1e357f5ea83e64fd1212a416fa5c0fd0">  106</a></span>    <span class="keyword">struct </span>zros_pub <a class="code hl_variable" href="struct__context.html#a1e357f5ea83e64fd1212a416fa5c0fd0">pub_actuators</a>; </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="struct__context.html#a11b33a5d37460dea2757ca40db39a808">  107</a></span>    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a11b33a5d37460dea2757ca40db39a808">wheel_radius</a>; </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="struct__context.html#a82e32c93352bb2c58f7baecd5c778a2a">  108</a></span>    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a82e32c93352bb2c58f7baecd5c778a2a">wheel_base</a>; </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="struct__context.html#ab34b391e5e71610ac139d80280e83172">  109</a></span>    int64_t <a class="code hl_variable" href="struct__context.html#ab34b391e5e71610ac139d80280e83172">no_line_time</a>; </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="struct__context.html#aa112e87116e3d351f9b15264931e36c1">  110</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#aa112e87116e3d351f9b15264931e36c1">prev_steer</a>; </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="struct__context.html#abc366c6ebd9e37db4779183baed17a7f">  111</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#abc366c6ebd9e37db4779183baed17a7f">prev_speed</a>; </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="struct__context.html#a35db7f84f4cd7cd9b1a9d99f2d5ace40">  112</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct__context.html#a35db7f84f4cd7cd9b1a9d99f2d5ace40">nb_of_vects_stored</a>; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="struct__context.html#ad8d65af85447e4c81a3757caacb6d3bc">  113</a></span>    <a class="code hl_struct" href="struct___d_vecteur.html">DVecteur</a> <a class="code hl_variable" href="struct__context.html#ad8d65af85447e4c81a3757caacb6d3bc">oldVectors</a>[<a class="code hl_define" href="velocity_8h.html#a7f5a8c9bbec8b32d488ebcd470bf80d6">NB_OF_VECTS_TO_WAIT</a>]; </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="struct__context.html#aa7797cad89c7beb63ec2633e9f950aa0">  114</a></span>    <a class="code hl_struct" href="struct___d_vecteur.html">DVecteur</a> <a class="code hl_variable" href="struct__context.html#aa7797cad89c7beb63ec2633e9f950aa0">first_vector</a>; </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct__context.html#ad12596657c36b08cdde3eedce3d52e43">  115</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct__context.html#ad12596657c36b08cdde3eedce3d52e43">first_vector_saved</a>; </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct__context.html#a8e22241314d30997506d8965a9258aff">  116</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a8e22241314d30997506d8965a9258aff">first_vector_angle_left</a>; </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct__context.html#a394716e86d82ae970600d1fb738ebfb6">  117</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a394716e86d82ae970600d1fb738ebfb6">first_vector_angle_right</a>; </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="struct__context.html#a845cec0a802a628e9cc108fc3ffe97e3">  118</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a845cec0a802a628e9cc108fc3ffe97e3">first_vector_middle</a>; </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="struct__context.html#ab88440dcffb4e7432364661fbdde56cb">  119</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#ab88440dcffb4e7432364661fbdde56cb">beta_ref</a>; </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="struct__context.html#a5850fd032d1b68ab894af21713fb4f49">  120</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a5850fd032d1b68ab894af21713fb4f49">sigma_ref</a>; </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="struct__context.html#a06d372d3d458029fe30c1ce0f19a5de9">  121</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a06d372d3d458029fe30c1ce0f19a5de9">head_distance_ref</a>; </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="struct__context.html#aa85679eefd3c19f5c2a0cf93fb73c688">  122</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#aa85679eefd3c19f5c2a0cf93fb73c688">tail_distance_ref</a>; </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="struct__context.html#a74f08c2daf9b6501d26fe6a3ca54d110">  123</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct__context.html#a74f08c2daf9b6501d26fe6a3ca54d110">angle_ref</a>; </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">  124</a></span>} <a class="code hl_typedef" href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a>;</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">static</span> <a class="code hl_struct" href="struct__context.html">context</a> g_ctx = {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    .<a class="code hl_variable" href="struct__context.html#a49ecc237d427a8fbc9cba4ffd8da4de0">node</a> = {},</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    .cmd_vel = synapse_msgs_Twist_init_default,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    .status = synapse_msgs_Status_init_default,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    .actuators = synapse_msgs_Actuators_init_default,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    .actuators_manual = synapse_msgs_Actuators_init_default,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    .pixy_vector=synapse_msgs_PixyVector_init_default,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    .sub_status = {},</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    .sub_cmd_vel = {},</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    .sub_actuators_manual = {},</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    .pub_actuators = {},</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    .wheel_radius = CONFIG_CEREBRI_B3RB_WHEEL_RADIUS_MM / 1000.0, <span class="comment">// Il va falloir qu&#39;on remesure le rayon de nos roues</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    .wheel_base = CONFIG_CEREBRI_B3RB_WHEEL_BASE_MM / 1000.0,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    .no_line_time = 0, <span class="comment">// Ajout Antoine</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    .prev_speed=0,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    .prev_steer=0,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    .nb_of_vects_stored=0,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    .first_vector_middle=0.0,</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    .beta_ref=0.0,</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    .sigma_ref=0.0,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    .head_distance_ref=0.0,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    .tail_distance_ref=0.0,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    .angle_ref=0.0,</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>};</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#include &quot;<a class="code" href="vector__utility_8h.html">./vector_utility.h</a>&quot;</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="velocity_8h.html#abc96458baccdad936e43638a23c511f8">  159</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="velocity_8h.html#abc96458baccdad936e43638a23c511f8">build_coefficients</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keywordtype">double</span> <a class="code hl_function" href="velocity_8h.html#a6f4ce863ba24e95568b6b379d0da9e51">gain_steer</a>(<span class="keywordtype">double</span> x);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keywordtype">double</span> <a class="code hl_function" href="velocity_8h.html#ab760cb7b351fb743842a79b5f6c2892e">gain_speed</a>(<span class="keywordtype">double</span> x);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keywordtype">void</span> <a class="code hl_function" href="velocity_8h.html#a7c81b0b7adb325bafe643ab55e65bcc6">print_info</a>(<span class="keywordtype">double</span> steer,  <a class="code hl_struct" href="struct___d_vecteur.html">DVecteur</a> vecteurs, <span class="keywordtype">int</span> nbVectors,<span class="keywordtype">double</span> omega_fwd);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keywordtype">double</span> <a class="code hl_function" href="velocity_8h.html#a3b7abbaade478dc7adbc901de63b1b02">speed_saturation</a>(<span class="keywordtype">double</span> speed);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">double</span> <a class="code hl_function" href="velocity_8h.html#ab80fae777a97ad253122bfe2d05e96eb">steer_saturation</a>(<span class="keywordtype">double</span> steer);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keywordtype">double</span> <a class="code hl_function" href="velocity_8h.html#a1f7ddbc1fc2a109d2b7cd3409e95d180">get_ref_angle_of_side</a>(<a class="code hl_struct" href="struct__context.html">context</a>* ctx, <a class="code hl_struct" href="struct___vecteur.html">Vecteur</a> vecteur);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astruct___d_vecteur_html"><div class="ttname"><a href="struct___d_vecteur.html">_DVecteur</a></div><div class="ttdoc">Structure pour un DVecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00091">velocity.h:91</a></div></div>
+<div class="ttc" id="astruct___d_vecteur_html_a855f313045383d6e1161968bb8c9c197"><div class="ttname"><a href="struct___d_vecteur.html#a855f313045383d6e1161968bb8c9c197">_DVecteur::m</a></div><div class="ttdeci">Vecteur m[2]</div><div class="ttdoc">Tableau de deux vecteurs.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00092">velocity.h:92</a></div></div>
+<div class="ttc" id="astruct___point_html"><div class="ttname"><a href="struct___point.html">_Point</a></div><div class="ttdoc">Structure pour un point.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00075">velocity.h:75</a></div></div>
+<div class="ttc" id="astruct___point_html_ab927965981178aa1fba979a37168db2a"><div class="ttname"><a href="struct___point.html#ab927965981178aa1fba979a37168db2a">_Point::y</a></div><div class="ttdeci">double y</div><div class="ttdoc">Coordonnée y du point.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00077">velocity.h:77</a></div></div>
+<div class="ttc" id="astruct___point_html_af88b946fb90d5f08b5fb740c70e98c10"><div class="ttname"><a href="struct___point.html#af88b946fb90d5f08b5fb740c70e98c10">_Point::x</a></div><div class="ttdeci">double x</div><div class="ttdoc">Coordonnée x du point.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00076">velocity.h:76</a></div></div>
+<div class="ttc" id="astruct___vecteur_html"><div class="ttname"><a href="struct___vecteur.html">_Vecteur</a></div><div class="ttdoc">Structure pour un vecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00083">velocity.h:83</a></div></div>
+<div class="ttc" id="astruct___vecteur_html_a4b5def2c4a827407505a2238695214e9"><div class="ttname"><a href="struct___vecteur.html#a4b5def2c4a827407505a2238695214e9">_Vecteur::head</a></div><div class="ttdeci">Point head</div><div class="ttdoc">Tête du vecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00085">velocity.h:85</a></div></div>
+<div class="ttc" id="astruct___vecteur_html_ada41fb90e7bd48a9a24a7d53bc7af27d"><div class="ttname"><a href="struct___vecteur.html#ada41fb90e7bd48a9a24a7d53bc7af27d">_Vecteur::tail</a></div><div class="ttdeci">Point tail</div><div class="ttdoc">Queue du vecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00084">velocity.h:84</a></div></div>
+<div class="ttc" id="astruct__context_html"><div class="ttname"><a href="struct__context.html">_context</a></div><div class="ttdoc">Structure pour le contexte.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00098">velocity.h:98</a></div></div>
+<div class="ttc" id="astruct__context_html_a06d372d3d458029fe30c1ce0f19a5de9"><div class="ttname"><a href="struct__context.html#a06d372d3d458029fe30c1ce0f19a5de9">_context::head_distance_ref</a></div><div class="ttdeci">double head_distance_ref</div><div class="ttdoc">Référence de distance de tête.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00121">velocity.h:121</a></div></div>
+<div class="ttc" id="astruct__context_html_a11b33a5d37460dea2757ca40db39a808"><div class="ttname"><a href="struct__context.html#a11b33a5d37460dea2757ca40db39a808">_context::wheel_radius</a></div><div class="ttdeci">const double wheel_radius</div><div class="ttdoc">Rayon de la roue.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00107">velocity.h:107</a></div></div>
+<div class="ttc" id="astruct__context_html_a1e357f5ea83e64fd1212a416fa5c0fd0"><div class="ttname"><a href="struct__context.html#a1e357f5ea83e64fd1212a416fa5c0fd0">_context::pub_actuators</a></div><div class="ttdeci">struct zros_pub pub_actuators</div><div class="ttdoc">Publications.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00106">velocity.h:106</a></div></div>
+<div class="ttc" id="astruct__context_html_a35db7f84f4cd7cd9b1a9d99f2d5ace40"><div class="ttname"><a href="struct__context.html#a35db7f84f4cd7cd9b1a9d99f2d5ace40">_context::nb_of_vects_stored</a></div><div class="ttdeci">int nb_of_vects_stored</div><div class="ttdoc">Nombre de vecteurs stockés.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00112">velocity.h:112</a></div></div>
+<div class="ttc" id="astruct__context_html_a394716e86d82ae970600d1fb738ebfb6"><div class="ttname"><a href="struct__context.html#a394716e86d82ae970600d1fb738ebfb6">_context::first_vector_angle_right</a></div><div class="ttdeci">double first_vector_angle_right</div><div class="ttdoc">Angle du premier vecteur à droite.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00117">velocity.h:117</a></div></div>
+<div class="ttc" id="astruct__context_html_a3b84ed55b31b462d78a49b5d48b018eb"><div class="ttname"><a href="struct__context.html#a3b84ed55b31b462d78a49b5d48b018eb">_context::actuators_manual</a></div><div class="ttdeci">synapse_msgs_Actuators actuators_manual</div><div class="ttdoc">Actionneurs manuels.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00103">velocity.h:103</a></div></div>
+<div class="ttc" id="astruct__context_html_a49ecc237d427a8fbc9cba4ffd8da4de0"><div class="ttname"><a href="struct__context.html#a49ecc237d427a8fbc9cba4ffd8da4de0">_context::node</a></div><div class="ttdeci">struct zros_node node</div><div class="ttdoc">Noeud ZROS.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00099">velocity.h:99</a></div></div>
+<div class="ttc" id="astruct__context_html_a5850fd032d1b68ab894af21713fb4f49"><div class="ttname"><a href="struct__context.html#a5850fd032d1b68ab894af21713fb4f49">_context::sigma_ref</a></div><div class="ttdeci">double sigma_ref</div><div class="ttdoc">Référence sigma.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00120">velocity.h:120</a></div></div>
+<div class="ttc" id="astruct__context_html_a74f08c2daf9b6501d26fe6a3ca54d110"><div class="ttname"><a href="struct__context.html#a74f08c2daf9b6501d26fe6a3ca54d110">_context::angle_ref</a></div><div class="ttdeci">double angle_ref</div><div class="ttdoc">Référence d'angle.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00123">velocity.h:123</a></div></div>
+<div class="ttc" id="astruct__context_html_a82e32c93352bb2c58f7baecd5c778a2a"><div class="ttname"><a href="struct__context.html#a82e32c93352bb2c58f7baecd5c778a2a">_context::wheel_base</a></div><div class="ttdeci">const double wheel_base</div><div class="ttdoc">Base de la roue.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00108">velocity.h:108</a></div></div>
+<div class="ttc" id="astruct__context_html_a845cec0a802a628e9cc108fc3ffe97e3"><div class="ttname"><a href="struct__context.html#a845cec0a802a628e9cc108fc3ffe97e3">_context::first_vector_middle</a></div><div class="ttdeci">double first_vector_middle</div><div class="ttdoc">Milieu du premier vecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00118">velocity.h:118</a></div></div>
+<div class="ttc" id="astruct__context_html_a8e22241314d30997506d8965a9258aff"><div class="ttname"><a href="struct__context.html#a8e22241314d30997506d8965a9258aff">_context::first_vector_angle_left</a></div><div class="ttdeci">double first_vector_angle_left</div><div class="ttdoc">Angle du premier vecteur à gauche.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00116">velocity.h:116</a></div></div>
+<div class="ttc" id="astruct__context_html_a904a8586ac25ba8cfd35714c650c25c9"><div class="ttname"><a href="struct__context.html#a904a8586ac25ba8cfd35714c650c25c9">_context::cmd_vel</a></div><div class="ttdeci">synapse_msgs_Twist cmd_vel</div><div class="ttdoc">Commande de vitesse.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00100">velocity.h:100</a></div></div>
+<div class="ttc" id="astruct__context_html_aa112e87116e3d351f9b15264931e36c1"><div class="ttname"><a href="struct__context.html#aa112e87116e3d351f9b15264931e36c1">_context::prev_steer</a></div><div class="ttdeci">double prev_steer</div><div class="ttdoc">Direction précédente.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00110">velocity.h:110</a></div></div>
+<div class="ttc" id="astruct__context_html_aa2acf905c92f724a6061196b32b0b52f"><div class="ttname"><a href="struct__context.html#aa2acf905c92f724a6061196b32b0b52f">_context::status</a></div><div class="ttdeci">synapse_msgs_Status status</div><div class="ttdoc">Statut.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00101">velocity.h:101</a></div></div>
+<div class="ttc" id="astruct__context_html_aa7797cad89c7beb63ec2633e9f950aa0"><div class="ttname"><a href="struct__context.html#aa7797cad89c7beb63ec2633e9f950aa0">_context::first_vector</a></div><div class="ttdeci">DVecteur first_vector</div><div class="ttdoc">Premier vecteur.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00114">velocity.h:114</a></div></div>
+<div class="ttc" id="astruct__context_html_aa85679eefd3c19f5c2a0cf93fb73c688"><div class="ttname"><a href="struct__context.html#aa85679eefd3c19f5c2a0cf93fb73c688">_context::tail_distance_ref</a></div><div class="ttdeci">double tail_distance_ref</div><div class="ttdoc">Référence de distance de queue.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00122">velocity.h:122</a></div></div>
+<div class="ttc" id="astruct__context_html_aa975ae312af2187e563077f286268123"><div class="ttname"><a href="struct__context.html#aa975ae312af2187e563077f286268123">_context::sub_pixy_vector</a></div><div class="ttdeci">struct zros_sub sub_status sub_cmd_vel sub_actuators_manual sub_pixy_vector</div><div class="ttdoc">Souscriptions.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00105">velocity.h:105</a></div></div>
+<div class="ttc" id="astruct__context_html_ab1ede8ccfb9d08dc8fde671aabf1b392"><div class="ttname"><a href="struct__context.html#ab1ede8ccfb9d08dc8fde671aabf1b392">_context::actuators</a></div><div class="ttdeci">synapse_msgs_Actuators actuators</div><div class="ttdoc">Actionneurs.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00102">velocity.h:102</a></div></div>
+<div class="ttc" id="astruct__context_html_ab34b391e5e71610ac139d80280e83172"><div class="ttname"><a href="struct__context.html#ab34b391e5e71610ac139d80280e83172">_context::no_line_time</a></div><div class="ttdeci">int64_t no_line_time</div><div class="ttdoc">Temps sans ligne.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00109">velocity.h:109</a></div></div>
+<div class="ttc" id="astruct__context_html_ab88440dcffb4e7432364661fbdde56cb"><div class="ttname"><a href="struct__context.html#ab88440dcffb4e7432364661fbdde56cb">_context::beta_ref</a></div><div class="ttdeci">double beta_ref</div><div class="ttdoc">Référence beta.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00119">velocity.h:119</a></div></div>
+<div class="ttc" id="astruct__context_html_abc366c6ebd9e37db4779183baed17a7f"><div class="ttname"><a href="struct__context.html#abc366c6ebd9e37db4779183baed17a7f">_context::prev_speed</a></div><div class="ttdeci">double prev_speed</div><div class="ttdoc">Vitesse précédente.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00111">velocity.h:111</a></div></div>
+<div class="ttc" id="astruct__context_html_ad12596657c36b08cdde3eedce3d52e43"><div class="ttname"><a href="struct__context.html#ad12596657c36b08cdde3eedce3d52e43">_context::first_vector_saved</a></div><div class="ttdeci">int first_vector_saved</div><div class="ttdoc">Premier vecteur sauvegardé.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00115">velocity.h:115</a></div></div>
+<div class="ttc" id="astruct__context_html_ad8d65af85447e4c81a3757caacb6d3bc"><div class="ttname"><a href="struct__context.html#ad8d65af85447e4c81a3757caacb6d3bc">_context::oldVectors</a></div><div class="ttdeci">DVecteur oldVectors[NB_OF_VECTS_TO_WAIT]</div><div class="ttdoc">Anciens vecteurs.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00113">velocity.h:113</a></div></div>
+<div class="ttc" id="astruct__context_html_af77a544b46b121570b9c510da77cdc36"><div class="ttname"><a href="struct__context.html#af77a544b46b121570b9c510da77cdc36">_context::pixy_vector</a></div><div class="ttdeci">synapse_msgs_PixyVector pixy_vector</div><div class="ttdoc">Vecteur Pixy.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00104">velocity.h:104</a></div></div>
+<div class="ttc" id="avector__utility_8h_html"><div class="ttname"><a href="vector__utility_8h.html">vector_utility.h</a></div><div class="ttdoc">Fichier contenant les fonctions relatives à la manipulation des vecteurs.</div></div>
+<div class="ttc" id="avelocity_8h_html_a184fa32e8e7e95b0596d604fc3c645c8"><div class="ttname"><a href="velocity_8h.html#a184fa32e8e7e95b0596d604fc3c645c8">Point</a></div><div class="ttdeci">struct _Point Point</div><div class="ttdoc">Structure pour un point.</div></div>
+<div class="ttc" id="avelocity_8h_html_a1f7ddbc1fc2a109d2b7cd3409e95d180"><div class="ttname"><a href="velocity_8h.html#a1f7ddbc1fc2a109d2b7cd3409e95d180">get_ref_angle_of_side</a></div><div class="ttdeci">double get_ref_angle_of_side(context *ctx, Vecteur vecteur)</div><div class="ttdoc">Obtient l'angle de référence du côté.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00189">velocity.c:189</a></div></div>
+<div class="ttc" id="avelocity_8h_html_a3b7abbaade478dc7adbc901de63b1b02"><div class="ttname"><a href="velocity_8h.html#a3b7abbaade478dc7adbc901de63b1b02">speed_saturation</a></div><div class="ttdeci">double speed_saturation(double speed)</div><div class="ttdoc">Sature la vitesse.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00067">velocity.c:67</a></div></div>
+<div class="ttc" id="avelocity_8h_html_a4f14ad7099522cbd48ea384f3e35b8f1"><div class="ttname"><a href="velocity_8h.html#a4f14ad7099522cbd48ea384f3e35b8f1">LOG_MODULE_REGISTER</a></div><div class="ttdeci">LOG_MODULE_REGISTER(b3rb_velocity, CONFIG_CEREBRI_B3RB_LOG_LEVEL)</div><div class="ttdoc">Enregistre le module de journalisation pour la vitesse b3rb.</div></div>
+<div class="ttc" id="avelocity_8h_html_a6f4ce863ba24e95568b6b379d0da9e51"><div class="ttname"><a href="velocity_8h.html#a6f4ce863ba24e95568b6b379d0da9e51">gain_steer</a></div><div class="ttdeci">double gain_steer(double x)</div><div class="ttdoc">Calcule le gain de direction en fonction de l'angle (en %).</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00012">velocity.c:12</a></div></div>
+<div class="ttc" id="avelocity_8h_html_a7c81b0b7adb325bafe643ab55e65bcc6"><div class="ttname"><a href="velocity_8h.html#a7c81b0b7adb325bafe643ab55e65bcc6">print_info</a></div><div class="ttdeci">void print_info(double steer, DVecteur vecteurs, int nbVectors, double omega_fwd)</div><div class="ttdoc">Affiche les informations.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00030">velocity.c:30</a></div></div>
+<div class="ttc" id="avelocity_8h_html_a7f5a8c9bbec8b32d488ebcd470bf80d6"><div class="ttname"><a href="velocity_8h.html#a7f5a8c9bbec8b32d488ebcd470bf80d6">NB_OF_VECTS_TO_WAIT</a></div><div class="ttdeci">#define NB_OF_VECTS_TO_WAIT</div><div class="ttdoc">Définit le nombre de vecteurs à attendre.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00033">velocity.h:33</a></div></div>
+<div class="ttc" id="avelocity_8h_html_a7fa44b8489f62a5ba0e33f180c4d7f07"><div class="ttname"><a href="velocity_8h.html#a7fa44b8489f62a5ba0e33f180c4d7f07">Vecteur</a></div><div class="ttdeci">struct _Vecteur Vecteur</div><div class="ttdoc">Structure pour un vecteur.</div></div>
+<div class="ttc" id="avelocity_8h_html_a97411d91623ffbc942a71a9323c887ed"><div class="ttname"><a href="velocity_8h.html#a97411d91623ffbc942a71a9323c887ed">context</a></div><div class="ttdeci">struct _context context</div><div class="ttdoc">Structure pour le contexte.</div></div>
+<div class="ttc" id="avelocity_8h_html_ab760cb7b351fb743842a79b5f6c2892e"><div class="ttname"><a href="velocity_8h.html#ab760cb7b351fb743842a79b5f6c2892e">gain_speed</a></div><div class="ttdeci">double gain_speed(double x)</div><div class="ttdoc">Calcule la vitesse en fonction de l'angle (en %).</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00021">velocity.c:21</a></div></div>
+<div class="ttc" id="avelocity_8h_html_ab80fae777a97ad253122bfe2d05e96eb"><div class="ttname"><a href="velocity_8h.html#ab80fae777a97ad253122bfe2d05e96eb">steer_saturation</a></div><div class="ttdeci">double steer_saturation(double steer)</div><div class="ttdoc">Sature la direction.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8c_source.html#l00056">velocity.c:56</a></div></div>
+<div class="ttc" id="avelocity_8h_html_abc96458baccdad936e43638a23c511f8"><div class="ttname"><a href="velocity_8h.html#abc96458baccdad936e43638a23c511f8">build_coefficients</a></div><div class="ttdeci">void build_coefficients(void)</div><div class="ttdoc">Construit les coefficients.</div></div>
+<div class="ttc" id="avelocity_8h_html_ace8a830233e7b71ed46dd03f502ed58d"><div class="ttname"><a href="velocity_8h.html#ace8a830233e7b71ed46dd03f502ed58d">DVecteur</a></div><div class="ttdeci">struct _DVecteur DVecteur</div><div class="ttdoc">Structure pour un DVecteur.</div></div>
+<div class="ttc" id="avelocity_8h_html_adfe6a447923fe08f846499693a99da9e"><div class="ttname"><a href="velocity_8h.html#adfe6a447923fe08f846499693a99da9e">speeds</a></div><div class="ttdeci">const speeds[]</div><div class="ttdoc">Tableau des valeurs de vitesse.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00070">velocity.h:70</a></div></div>
+<div class="ttc" id="avelocity_8h_html_ae681e84221da39fb28ff260603605ef3"><div class="ttname"><a href="velocity_8h.html#ae681e84221da39fb28ff260603605ef3">steers</a></div><div class="ttdeci">const steers[]</div><div class="ttdoc">Tableau des valeurs de gain direction.</div><div class="ttdef"><b>Definition</b> <a href="velocity_8h_source.html#l00069">velocity.h:69</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="velocity_8h.html">velocity.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+\doxysection{velocity.\+h}
+\hypertarget{velocity_8h_source}{}\label{velocity_8h_source}\index{src/velocity.h@{src/velocity.h}}
+\mbox{\hyperlink{velocity_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ VELOCITY}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ VELOCITY}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}casadi/gen/b3rb.h"{}}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}math.h"{}}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <zephyr/logging/log.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <zephyr/kernel.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00018}00018\ \textcolor{comment}{//\ Définitions\ des\ constantes}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00019}\mbox{\hyperlink{velocity_8h_a0c0ca5341e1f18622b917da882f6abec}{00019}}\ \textcolor{preprocessor}{\#define\ VECTOR\_ON\_THE\_LEFT\ 1\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00020}\mbox{\hyperlink{velocity_8h_aabe2f4c791fb7506c1b1fb524e4a14df}{00020}}\ \textcolor{preprocessor}{\#define\ VECTOR\_ON\_THE\_RIGHT\ 0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00021}\mbox{\hyperlink{velocity_8h_ae71449b1cc6e6250b91f539153a7a0d3}{00021}}\ \textcolor{preprocessor}{\#define\ M\_PI\ 3.14159265358979323846\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00022}\mbox{\hyperlink{velocity_8h_aafd9a8a07447ca0c0c79ae00e8e5f7e9}{00022}}\ \textcolor{preprocessor}{\#define\ IMAGE\_WIDTH\ 78\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00023}\mbox{\hyperlink{velocity_8h_a24688fc70fd5d6fe90a57e03a34ebc1c}{00023}}\ \textcolor{preprocessor}{\#define\ IMAGE\_HEIGHT\ 51\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00024}\mbox{\hyperlink{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7}{00024}}\ \textcolor{preprocessor}{\#define\ STEER\_MAX\ 0.6\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00025}\mbox{\hyperlink{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0}{00025}}\ \textcolor{preprocessor}{\#define\ SPEED\_MAX\ 36.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00026}\mbox{\hyperlink{velocity_8h_aaa6f04f6f0d7cf1008a53279acf49f07}{00026}}\ \textcolor{preprocessor}{\#define\ WHEEL\_RADIUS\ 34\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00027}\mbox{\hyperlink{velocity_8h_a13902ac92146457d699b7b13f38bb984}{00027}}\ \textcolor{preprocessor}{\#define\ LEFT\_OR\_RIGHT\_COEFF\ -\/1\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00028}\mbox{\hyperlink{velocity_8h_a76de77d410daf16e90bc1281a8208133}{00028}}\ \textcolor{preprocessor}{\#define\ AUTO\_START\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00030}00030\ \textcolor{comment}{//\ Paramètres\ pour\ éliminer\ les\ vecteurs\ "{}mauvais"{}}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00031}\mbox{\hyperlink{velocity_8h_a06fa257f69dbff32545cc5ab9a4d25b5}{00031}}\ \textcolor{preprocessor}{\#define\ MIN\_VECTOR\_LENGTH\ 20\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00032}\mbox{\hyperlink{velocity_8h_a6221d514b4ea1fcc5462d17110bcbe46}{00032}}\ \textcolor{preprocessor}{\#define\ NO\_LINE\_TIME\ 3500\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00033}\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{00033}}\ \textcolor{preprocessor}{\#define\ NB\_OF\_VECTS\_TO\_WAIT\ 1\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00034}\mbox{\hyperlink{velocity_8h_a84edbd3567c0622d9da6378be9271e9d}{00034}}\ \textcolor{preprocessor}{\#define\ MAX\_DISTANCE\_FOR\_SAME\_VECT\ 30\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00035}\mbox{\hyperlink{velocity_8h_ab1b024d1e4c8f1aa8c7759b6b8d93a9d}{00035}}\ \textcolor{preprocessor}{\#define\ SAME\_VECTOR\_THRESHOLD\ 20\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00036}\mbox{\hyperlink{velocity_8h_a8742c2a5b97bcfe90d7244a8d1748d15}{00036}}\ \textcolor{preprocessor}{\#define\ IMAGE\_WIDTH\_THRESHOLD\ 0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00037}\mbox{\hyperlink{velocity_8h_a2675c9e5db64b847086b89e722867653}{00037}}\ \textcolor{preprocessor}{\#define\ MAX\_VECTOR\_ANGLE\_THRESHOLD\ 60\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00039}00039\ \textcolor{comment}{//\ Paramètres\ de\ vitesse\ en\ \%}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00040}\mbox{\hyperlink{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8}{00040}}\ \textcolor{preprocessor}{\#define\ NO\_VECTOR\_SPEED\ 50.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00042}00042\ \textcolor{comment}{//\ Paramètres\ de\ rotation\ en\ \%}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00043}\mbox{\hyperlink{velocity_8h_ab383f715933d87ae2719699c5705c4fe}{00043}}\ \textcolor{preprocessor}{\#define\ INCREASE\_STEER\_IF\_NO\_VECTORS\ 5.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00044}\mbox{\hyperlink{velocity_8h_a9b3e15e09bc960db231f40561b03a78b}{00044}}\ \textcolor{preprocessor}{\#define\ INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD\ 60.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00046}00046\ \textcolor{comment}{//\ Non\ modifiable}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00047}\mbox{\hyperlink{velocity_8h_a5a469920b16bb69d617be8fca7a2f1de}{00047}}\ \textcolor{preprocessor}{\#define\ SPEED\_FACTOR\ SPEED\_MAX/100.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ STEER\_FACTOR\ STEER\_MAX/100.0\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00050}00050\ \textcolor{preprocessor}{\#include\ <zros/private/zros\_node\_struct.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00051}00051\ \textcolor{preprocessor}{\#include\ <zros/private/zros\_pub\_struct.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00052}00052\ \textcolor{preprocessor}{\#include\ <zros/private/zros\_sub\_struct.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00053}00053\ \textcolor{preprocessor}{\#include\ <zros/zros\_node.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00054}00054\ \textcolor{preprocessor}{\#include\ <zros/zros\_pub.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00055}00055\ \textcolor{preprocessor}{\#include\ <zros/zros\_sub.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00057}00057\ \textcolor{preprocessor}{\#include\ <cerebri/core/casadi.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00058}00058\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00059}00059\ \textcolor{preprocessor}{\#include\ <math.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00060}00060\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00061}\mbox{\hyperlink{velocity_8h_ac4f86b90339f797473f6e49620d4152b}{00061}}\ \textcolor{preprocessor}{\#include\ "{}mixing.h"{}}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00063}\mbox{\hyperlink{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}{00063}}\ \textcolor{preprocessor}{\#define\ MY\_STACK\_SIZE\ 3072\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00064}\mbox{\hyperlink{velocity_8h_af779536d343f909d8fcca2d754555ddd}{00064}}\ \textcolor{preprocessor}{\#define\ MY\_PRIORITY\ 4\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00066}\mbox{\hyperlink{velocity_8h_a4f14ad7099522cbd48ea384f3e35b8f1}{00066}}\ \mbox{\hyperlink{velocity_8h_a4f14ad7099522cbd48ea384f3e35b8f1}{LOG\_MODULE\_REGISTER}}(b3rb\_velocity,\ CONFIG\_CEREBRI\_B3RB\_LOG\_LEVEL);\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00068}00068\ \textcolor{comment}{//\ Direction\ à\ (\%)\ \ \ \ \ \ \ \ 0\ \ \ \ 10\ \ \ \ 20\ \ \ \ 30\ \ \ \ 40\ \ \ \ 50\ \ \ \ 60\ \ \ \ 70\ \ \ \ 80\ \ \ \ 90\ \ \ 100\ \ \ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00069}\mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{00069}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{steers}}[]\ =\ \{0.30,\ 0.30,\ 0.30,\ 0.30,\ 0.30,\ 0.35,\ 0.40,\ 0.70,\ 0.80,\ 0.85,\ 0.90,\ 0.90\};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00070}\mbox{\hyperlink{velocity_8h_adfe6a447923fe08f846499693a99da9e}{00070}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{velocity_8h_adfe6a447923fe08f846499693a99da9e}{speeds}}[]\ =\ \{100.0,100.0,100.0,90.0,\ 80.0,\ 80.0,\ 70.0,\ 70.0,\ 60.0,\ 60.0,\ 60.0,\ 60.0\};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00075}\mbox{\hyperlink{struct___point}{00075}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___point}{\_Point}}\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00076}\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{00076}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00077}\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{00077}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00078}\mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{00078}}\ \}\ \mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}};}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00083}\mbox{\hyperlink{struct___vecteur}{00083}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___vecteur}{\_Vecteur}}\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00084}\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{00084}}\ \ \ \ \ \mbox{\hyperlink{struct___point}{Point}}\ \mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00085}\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{00085}}\ \ \ \ \ \mbox{\hyperlink{struct___point}{Point}}\ \mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00086}\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{00086}}\ \}\ \mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}};}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00091}\mbox{\hyperlink{struct___d_vecteur}{00091}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___d_vecteur}{\_DVecteur}}\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00092}\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{00092}}\ \ \ \ \ \mbox{\hyperlink{struct___vecteur}{Vecteur}}\ \mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[2];\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00093}\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{00093}}\ \}\ \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}};}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00098}\mbox{\hyperlink{struct__context}{00098}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__context}{\_context}}\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00099}\mbox{\hyperlink{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0}{00099}}\ \ \ \ \ \textcolor{keyword}{struct\ }zros\_node\ \mbox{\hyperlink{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0}{node}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00100}\mbox{\hyperlink{struct__context_a904a8586ac25ba8cfd35714c650c25c9}{00100}}\ \ \ \ \ synapse\_msgs\_Twist\ \mbox{\hyperlink{struct__context_a904a8586ac25ba8cfd35714c650c25c9}{cmd\_vel}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00101}\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{00101}}\ \ \ \ \ synapse\_msgs\_Status\ \mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00102}\mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{00102}}\ \ \ \ \ synapse\_msgs\_Actuators\ \mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{actuators}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00103}\mbox{\hyperlink{struct__context_a3b84ed55b31b462d78a49b5d48b018eb}{00103}}\ \ \ \ \ synapse\_msgs\_Actuators\ \mbox{\hyperlink{struct__context_a3b84ed55b31b462d78a49b5d48b018eb}{actuators\_manual}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00104}\mbox{\hyperlink{struct__context_af77a544b46b121570b9c510da77cdc36}{00104}}\ \ \ \ \ synapse\_msgs\_PixyVector\ \mbox{\hyperlink{struct__context_af77a544b46b121570b9c510da77cdc36}{pixy\_vector}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00105}\mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{00105}}\ \ \ \ \ \textcolor{keyword}{struct\ }zros\_sub\ sub\_status,\ sub\_cmd\_vel,\ sub\_actuators\_manual,\ \mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{sub\_pixy\_vector}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00106}\mbox{\hyperlink{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0}{00106}}\ \ \ \ \ \textcolor{keyword}{struct\ }zros\_pub\ \mbox{\hyperlink{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0}{pub\_actuators}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00107}\mbox{\hyperlink{struct__context_a11b33a5d37460dea2757ca40db39a808}{00107}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a11b33a5d37460dea2757ca40db39a808}{wheel\_radius}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00108}\mbox{\hyperlink{struct__context_a82e32c93352bb2c58f7baecd5c778a2a}{00108}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a82e32c93352bb2c58f7baecd5c778a2a}{wheel\_base}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00109}\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{00109}}\ \ \ \ \ int64\_t\ \mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00110}\mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{00110}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{prev\_steer}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00111}\mbox{\hyperlink{struct__context_abc366c6ebd9e37db4779183baed17a7f}{00111}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_abc366c6ebd9e37db4779183baed17a7f}{prev\_speed}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00112}\mbox{\hyperlink{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40}{00112}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40}{nb\_of\_vects\_stored}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00113}\mbox{\hyperlink{struct__context_ad8d65af85447e4c81a3757caacb6d3bc}{00113}}\ \ \ \ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ \mbox{\hyperlink{struct__context_ad8d65af85447e4c81a3757caacb6d3bc}{oldVectors}}[\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\_OF\_VECTS\_TO\_WAIT}}];\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00114}\mbox{\hyperlink{struct__context_aa7797cad89c7beb63ec2633e9f950aa0}{00114}}\ \ \ \ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ \mbox{\hyperlink{struct__context_aa7797cad89c7beb63ec2633e9f950aa0}{first\_vector}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00115}\mbox{\hyperlink{struct__context_ad12596657c36b08cdde3eedce3d52e43}{00115}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct__context_ad12596657c36b08cdde3eedce3d52e43}{first\_vector\_saved}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00116}\mbox{\hyperlink{struct__context_a8e22241314d30997506d8965a9258aff}{00116}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a8e22241314d30997506d8965a9258aff}{first\_vector\_angle\_left}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00117}\mbox{\hyperlink{struct__context_a394716e86d82ae970600d1fb738ebfb6}{00117}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a394716e86d82ae970600d1fb738ebfb6}{first\_vector\_angle\_right}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00118}\mbox{\hyperlink{struct__context_a845cec0a802a628e9cc108fc3ffe97e3}{00118}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a845cec0a802a628e9cc108fc3ffe97e3}{first\_vector\_middle}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00119}\mbox{\hyperlink{struct__context_ab88440dcffb4e7432364661fbdde56cb}{00119}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_ab88440dcffb4e7432364661fbdde56cb}{beta\_ref}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00120}\mbox{\hyperlink{struct__context_a5850fd032d1b68ab894af21713fb4f49}{00120}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a5850fd032d1b68ab894af21713fb4f49}{sigma\_ref}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00121}\mbox{\hyperlink{struct__context_a06d372d3d458029fe30c1ce0f19a5de9}{00121}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a06d372d3d458029fe30c1ce0f19a5de9}{head\_distance\_ref}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00122}\mbox{\hyperlink{struct__context_aa85679eefd3c19f5c2a0cf93fb73c688}{00122}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_aa85679eefd3c19f5c2a0cf93fb73c688}{tail\_distance\_ref}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00123}\mbox{\hyperlink{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110}{00123}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110}{angle\_ref}};\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00124}\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{00124}}\ \}\ \mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}};}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00129}00129\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct__context}{context}}\ g\_ctx\ =\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00130}00130\ \ \ \ \ .\mbox{\hyperlink{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0}{node}}\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00131}00131\ \ \ \ \ .cmd\_vel\ =\ synapse\_msgs\_Twist\_init\_default,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00132}00132\ \ \ \ \ .status\ =\ synapse\_msgs\_Status\_init\_default,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00133}00133\ \ \ \ \ .actuators\ =\ synapse\_msgs\_Actuators\_init\_default,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00134}00134\ \ \ \ \ .actuators\_manual\ =\ synapse\_msgs\_Actuators\_init\_default,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00135}00135\ \ \ \ \ .pixy\_vector=synapse\_msgs\_PixyVector\_init\_default,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00136}00136\ \ \ \ \ .sub\_status\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00137}00137\ \ \ \ \ .sub\_cmd\_vel\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00138}00138\ \ \ \ \ .sub\_actuators\_manual\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00139}00139\ \ \ \ \ .pub\_actuators\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00140}00140\ \ \ \ \ .wheel\_radius\ =\ CONFIG\_CEREBRI\_B3RB\_WHEEL\_RADIUS\_MM\ /\ 1000.0,\ \textcolor{comment}{//\ Il\ va\ falloir\ qu'on\ remesure\ le\ rayon\ de\ nos\ roues}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00141}00141\ \ \ \ \ .wheel\_base\ =\ CONFIG\_CEREBRI\_B3RB\_WHEEL\_BASE\_MM\ /\ 1000.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00142}00142\ \ \ \ \ .no\_line\_time\ =\ 0,\ \textcolor{comment}{//\ Ajout\ Antoine}}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00143}00143\ \ \ \ \ .prev\_speed=0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00144}00144\ \ \ \ \ .prev\_steer=0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00145}00145\ \ \ \ \ .nb\_of\_vects\_stored=0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00146}00146\ \ \ \ \ .first\_vector\_middle=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00147}00147\ \ \ \ \ .beta\_ref=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00148}00148\ \ \ \ \ .sigma\_ref=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00149}00149\ \ \ \ \ .head\_distance\_ref=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00150}00150\ \ \ \ \ .tail\_distance\_ref=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00151}00151\ \ \ \ \ .angle\_ref=0.0,}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00152}00152\ \};}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00154}00154\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__utility_8h}{./vector\_utility.h}}"{}}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00159}\mbox{\hyperlink{velocity_8h_abc96458baccdad936e43638a23c511f8}{00159}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{velocity_8h_abc96458baccdad936e43638a23c511f8}{build\_coefficients}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00166}00166\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8h_a6f4ce863ba24e95568b6b379d0da9e51}{gain\_steer}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00173}00173\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8h_ab760cb7b351fb743842a79b5f6c2892e}{gain\_speed}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00182}00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{velocity_8h_a7c81b0b7adb325bafe643ab55e65bcc6}{print\_info}}(\textcolor{keywordtype}{double}\ steer,\ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ vecteurs,\ \textcolor{keywordtype}{int}\ nbVectors,\textcolor{keywordtype}{double}\ omega\_fwd);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00189}00189\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8h_a3b7abbaade478dc7adbc901de63b1b02}{speed\_saturation}}(\textcolor{keywordtype}{double}\ speed);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00196}00196\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8h_ab80fae777a97ad253122bfe2d05e96eb}{steer\_saturation}}(\textcolor{keywordtype}{double}\ steer);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00204}00204\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8h_a1f7ddbc1fc2a109d2b7cd3409e95d180}{get\_ref\_angle\_of\_side}}(\mbox{\hyperlink{struct__context}{context}}*\ ctx,\ \mbox{\hyperlink{struct___vecteur}{Vecteur}}\ vecteur);}
+\DoxyCodeLine{\Hypertarget{velocity_8h_source_l00205}00205\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

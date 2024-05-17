@@ -1,0 +1,287 @@
+\doxysection{velocity.\+c}
+\hypertarget{velocity_8c_source}{}\label{velocity_8c_source}\index{src/velocity.c@{src/velocity.c}}
+\mbox{\hyperlink{velocity_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{velocity_8h}{velocity.h}}"{}}\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00011}00011\ \textcolor{comment}{//\ Fonction\ pour\ calculer\ le\ gain\ de\ direction\ en\ fonction\ de\ l'angle}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00012}\mbox{\hyperlink{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51}{00012}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51}{gain\_steer}}(\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ 100.0)\ \{\ \textcolor{comment}{//\ Si\ x\ est\ supérieur\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00014}00014\ \ \ \ \ \ \ \ \ x\ =\ 100.0;\ \textcolor{comment}{//\ On\ fixe\ x\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00016}00016\ \ \ \ \textcolor{keywordtype}{int}\ q\ =\ (int)((x-\/fmod(x,10.0))\ /\ 10);\ \textcolor{comment}{//\ On\ calcule\ la\ partie\ entière\ de\ x/10}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{steers}}[q\ +\ 1]\ -\/\ \mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{steers}}[q])\ /\ 10.0\ *\ (x\ -\/\ (double)q\ *\ 10.0)\ +\ \mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{steers}}[q];\ \textcolor{comment}{//\ On\ retourne\ le\ gain\ de\ direction\ calculé}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00020}00020\ \textcolor{comment}{//\ Fonction\ pour\ calculer\ le\ gain\ de\ vitesse\ en\ fonction\ de\ l'angle}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00021}\mbox{\hyperlink{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e}{00021}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e}{gain\_speed}}(\textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ 100.0)\ \{\ \textcolor{comment}{//\ Si\ x\ est\ supérieur\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ x\ =\ 100.0;\ \textcolor{comment}{//\ On\ fixe\ x\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ q\ =\ (int)((x-\/fmod(x,10.0))\ /\ 10);\ \textcolor{comment}{//\ On\ calcule\ la\ partie\ entière\ de\ x/10}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{velocity_8h_adfe6a447923fe08f846499693a99da9e}{speeds}}[q\ +\ 1]\ -\/\ seeds[q])\ /\ 10.0\ *\ (x\ -\/\ (double)q\ *\ 10.0)\ +\ \mbox{\hyperlink{velocity_8h_adfe6a447923fe08f846499693a99da9e}{speeds}}[q];\ \textcolor{comment}{//\ On\ retourne\ le\ gain\ de\ vitesse\ calculé}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00029}00029\ \textcolor{comment}{//\ Fonction\ pour\ afficher\ les\ informations\ de\ direction,\ vecteurs,\ nombre\ de\ vecteurs\ et\ omega\_fwd}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00030}\mbox{\hyperlink{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6}{print\_info}}(\textcolor{keywordtype}{double}\ steer,\ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ vecteurs,\ \textcolor{keywordtype}{int}\ nbVectors,\textcolor{keywordtype}{double}\ omega\_fwd)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00032}00032\ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00033}00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Timestamp:\ \%lld,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Nb\_vectors:\%d,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ turn\_angle(percent):\%f,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ omega\_fwd\ (percent):\%f,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ m0:\(\backslash\)"{}(x0:\ \%f,\ y0:\ \%f),(x1:\ \%f,\ y1:\ \%f)\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ m1:\ \(\backslash\)"{}(x0:\ \%f,\ y0:\ \%f),\ (x1:\ \%f,\ y1:\ \%f)\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \}\(\backslash\)r\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_uptime\_get(),\ \textcolor{comment}{//\ Récupère\ le\ temps\ écoulé\ depuis\ le\ démarrage\ du\ système}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbVectors,\ \textcolor{comment}{//\ Affiche\ le\ nombre\ de\ vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer,\ \textcolor{comment}{//\ Affiche\ l'angle\ de\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ omega\_fwd,\ \textcolor{comment}{//\ Affiche\ omega\_fwd}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},\ \textcolor{comment}{//\ Affiche\ x0\ du\ vecteur\ m0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},\ \textcolor{comment}{//\ Affiche\ y0\ du\ vecteur\ m0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},\ \textcolor{comment}{//\ Affiche\ x1\ du\ vecteur\ m0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},\ \textcolor{comment}{//\ Affiche\ y1\ du\ vecteur\ m0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},\ \textcolor{comment}{//\ Affiche\ x0\ du\ vecteur\ m1}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},\ \textcolor{comment}{//\ Affiche\ y0\ du\ vecteur\ m1}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},\ \textcolor{comment}{//\ Affiche\ x1\ du\ vecteur\ m1}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}});\ \textcolor{comment}{//\ Affiche\ y1\ du\ vecteur\ m1}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00055}00055\ \textcolor{comment}{//\ Fonction\ pour\ saturer\ la\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00056}\mbox{\hyperlink{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb}{00056}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb}{steer\_saturation}}(\textcolor{keywordtype}{double}\ steer)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}(steer>100)\{\ \textcolor{comment}{//\ Si\ steer\ est\ supérieur\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ steer=100;\ \textcolor{comment}{//\ On\ fixe\ steer\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00060}00060\ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(steer\ <\ -\/100)\{\ \textcolor{comment}{//\ Si\ steer\ est\ inférieur\ à\ -\/100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ steer=-\/100;\ \textcolor{comment}{//\ On\ fixe\ steer\ à\ -\/100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ steer;\ \textcolor{comment}{//\ On\ retourne\ steer}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00066}00066\ \textcolor{comment}{//\ Fonction\ pour\ saturer\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00067}\mbox{\hyperlink{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02}{00067}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02}{speed\_saturation}}(\textcolor{keywordtype}{double}\ speed)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{if}(speed>100)\{\ \textcolor{comment}{//\ Si\ speed\ est\ supérieur\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ speed=100;\ \textcolor{comment}{//\ On\ fixe\ speed\ à\ 100}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00071}00071\ \ \ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(speed\ <=0)\{\ \textcolor{comment}{//\ Si\ speed\ est\ inférieur\ ou\ égal\ à\ 0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ speed=\ 0;\ \textcolor{comment}{//\ On\ fixe\ speed\ à\ 0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ speed;\ \textcolor{comment}{//\ On\ retourne\ speed}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6}{print\_info}}(\textcolor{keywordtype}{double}\ steer,\ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ vecteurs,\ \textcolor{keywordtype}{int}\ nbVectors,\textcolor{keywordtype}{double}\ omega\_fwd)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00079}00079\ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Timestamp:\ \%lld,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ Nb\_vectors:\%d,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ turn\_angle(percent):\%f,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ omega\_fwd\ (percent):\%f,\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ m0:\(\backslash\)"{}(x0:\ \%f,\ y0:\ \%f),(x1:\ \%f,\ y1:\ \%f)\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ m1:\ \(\backslash\)"{}(x0:\ \%f,\ y0:\ \%f),\ (x1:\ \%f,\ y1:\ \%f)\(\backslash\)r\(\backslash\)n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00087}00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \}\(\backslash\)r\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_uptime\_get(),}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbVectors,}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer,}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ omega\_fwd,}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[0].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_ada41fb90e7bd48a9a24a7d53bc7af27d}{tail}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_af88b946fb90d5f08b5fb740c70e98c10}{x}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vecteurs.\mbox{\hyperlink{struct___d_vecteur_a855f313045383d6e1161968bb8c9c197}{m}}[1].\mbox{\hyperlink{struct___vecteur_a4b5def2c4a827407505a2238695214e9}{head}}.\mbox{\hyperlink{struct___point_ab927965981178aa1fba979a37168db2a}{y}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00103}00103\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ follow\_line(\mbox{\hyperlink{struct__context}{context}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00104}00104\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{double}\ steer\ =\ 0.0;\ \textcolor{comment}{//\ Initialise\ steer\ à\ 0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{double}\ speed\ =\ 0.0;\ \textcolor{comment}{//\ Initialise\ speed\ à\ 0}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ vecteurs;\ \textcolor{comment}{//\ Déclare\ une\ variable\ vecteurs\ de\ type\ DVecteur}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a82365890f3c54dc3bd5cc1db905b74f4}{pixyVecteursToDVecteurs}}(ctx-\/>\mbox{\hyperlink{struct__context_af77a544b46b121570b9c510da77cdc36}{pixy\_vector}},\&vecteurs);\ \textcolor{comment}{//\ Convertit\ les\ vecteurs\ Pixy\ en\ DVecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00109}00109\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_vectors\ =\ \mbox{\hyperlink{vector__utility_8h_acb625582b95800c29178cb77fbcc31ae}{getNbOfNonNullVecteurs}}(\&vecteurs);\ \textcolor{comment}{//\ Obtient\ le\ nombre\ de\ vecteurs\ non\ nuls}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a0214820aa0e96769833214c15dae7fc7}{arrangeVecteurs}}(\&vecteurs);\ \textcolor{comment}{//\ Arrange\ les\ vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_afdbeb62c1ad1fb6c2d8203b33333a4bd}{addVecteursToList}}(vecteurs,ctx,\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\_OF\_VECTS\_TO\_WAIT}});\ \textcolor{comment}{//\ Ajoute\ les\ vecteurs\ à\ la\ liste}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{if}(ctx-\/>\mbox{\hyperlink{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40}{nb\_of\_vects\_stored}}\ ==\ \mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\_OF\_VECTS\_TO\_WAIT}})\{\ \textcolor{comment}{//\ Si\ le\ nombre\ de\ vecteurs\ stockés\ est\ égal\ à\ NB\_OF\_VECTS\_TO\_WAIT}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___d_vecteur}{DVecteur}}\ average\_vecteurs;\ \textcolor{comment}{//\ Déclare\ une\ variable\ average\_vecteurs\ de\ type\ DVecteur}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a7253e143d1aeb74579a16f0c951768f3}{setNullVecteur}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Met\ à\ zéro\ average\_vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a20f029f5aa0c0be0c45cc88b9c8af3db}{calculateAverageVecteursWithoutOutliers}}(ctx-\/>\mbox{\hyperlink{struct__context_ad8d65af85447e4c81a3757caacb6d3bc}{oldVectors}},\&average\_vecteurs,\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\_OF\_VECTS\_TO\_WAIT}});\ \textcolor{comment}{//\ Calcule\ la\ moyenne\ des\ vecteurs\ sans\ les\ valeurs\ aberrantes}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_ab8d682ca3712ccbe4068df1e9d4ac384}{removeSmallVecteurs}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Supprime\ les\ petits\ vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a1899b7bbf8a9eaf9f535b62eb9158c8f}{removeLargeAngleVecteur}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Supprime\ les\ vecteurs\ avec\ un\ grand\ angle}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00119}00119\ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_ab742eefe47fb67ab9d3603bb52152417}{mergeSameVecteurs}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Fusionne\ les\ vecteurs\ similaires\ dans\ average\_vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ num\_vectors\ =\ \mbox{\hyperlink{vector__utility_8h_acb625582b95800c29178cb77fbcc31ae}{getNbOfNonNullVecteurs}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Obtient\ le\ nombre\ de\ vecteurs\ non\ nuls\ dans\ average\_vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ aucun\ vecteur\ n'est\ détecté,\ on\ arrête\ la\ voiture}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(num\_vectors\ \ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ c'est\ la\ première\ fois\ qu'aucun\ vecteur\ n'est\ détecté}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ctx-\/>\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}}\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}}=k\_uptime\_get();\ \textcolor{comment}{//\ Enregistre\ le\ temps\ actuel}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer\ =\ ctx-\/>\mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{prev\_steer}};\ \textcolor{comment}{//\ Utilise\ la\ dernière\ valeur\ de\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ speed=\mbox{\hyperlink{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8}{NO\_VECTOR\_SPEED}};\ \textcolor{comment}{//\ Définit\ la\ vitesse\ à\ NO\_VECTOR\_SPEED}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)nFirst\ vector\(\backslash\)r\(\backslash\)n"{}});\ \textcolor{comment}{//\ Affiche\ un\ message\ d'information}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ cela\ fait\ plus\ de\ NO\_LINE\_TIME\ ms\ qu'aucun\ vecteur\ n'a\ été\ détecté}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(k\_uptime\_get()\ -\/\ ctx-\/>\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}}\ >=\ \mbox{\hyperlink{velocity_8h_a6221d514b4ea1fcc5462d17110bcbe46}{NO\_LINE\_TIME}})\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ 0.0;\ \textcolor{comment}{//\ Arrête\ la\ voiture}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer\ =\ 0.0;\ \textcolor{comment}{//\ Arrête\ de\ tourner}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\ No\ vectors,\ stopping"{}});\ \textcolor{comment}{//\ Affiche\ un\ message\ d'information}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\ \%lld\ ms\ without\ any\ vectors"{}},\ k\_uptime\_get()\ -\/\ ctx-\/>\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}});\ \textcolor{comment}{//\ Affiche\ le\ temps\ écoulé\ depuis\ la\ dernière\ détection\ de\ vecteur}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ \mbox{\hyperlink{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8}{NO\_VECTOR\_SPEED}};\ \textcolor{comment}{//\ Continue\ à\ la\ même\ vitesse}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer\ =ctx-\/>\mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{prev\_steer}};\ \textcolor{comment}{//\ Continue\ à\ tourner\ dans\ la\ même\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ direction\ est\ supérieure\ à\ INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(steer\ >\ \mbox{\hyperlink{velocity_8h_a9b3e15e09bc960db231f40561b03a78b}{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}})\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer+=\mbox{\hyperlink{velocity_8h_ab383f715933d87ae2719699c5705c4fe}{INCREASE\_STEER\_IF\_NO\_VECTORS}};\ \textcolor{comment}{//\ Augmente\ la\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ direction\ est\ inférieure\ à\ -\/INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(steer\ <\ -\/\mbox{\hyperlink{velocity_8h_a9b3e15e09bc960db231f40561b03a78b}{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}})\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer-\/=\mbox{\hyperlink{velocity_8h_ab383f715933d87ae2719699c5705c4fe}{INCREASE\_STEER\_IF\_NO\_VECTORS}};\ \textcolor{comment}{//\ Diminue\ la\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ deux\ vecteurs\ sont\ détectés\ et\ que\ le\ premier\ vecteur\ n'a\ pas\ encore\ été\ enregistré}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(num\_vectors\ ==\ 2\ \&\&\ ctx-\/>\mbox{\hyperlink{struct__context_ad12596657c36b08cdde3eedce3d52e43}{first\_vector\_saved}}\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_a1ed6dadd12910eb844d4237ad903ae63}{maximizeDVector}}(\&average\_vecteurs);\ \textcolor{comment}{//\ Maximise\ average\_vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_aa50b14ad09aa2d3f49cec4e624c34ea1}{saveReferenceVecteur}}(ctx,average\_vecteurs);\ \textcolor{comment}{//\ Enregistre\ le\ vecteur\ de\ référence}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ un\ seul\ vecteur\ est\ détecté\ et\ que\ le\ premier\ vecteur\ a\ été\ enregistré}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(num\_vectors\ ==\ 1\ \&\&\ ctx-\/>\mbox{\hyperlink{struct__context_ad12596657c36b08cdde3eedce3d52e43}{first\_vector\_saved}}\ ==\ 1)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vector__utility_8h_ac12ca86cfbbae8b1e0ce6fa2dc00501a}{buildSecondVecteur}}(\&average\_vecteurs,ctx);\ \textcolor{comment}{//\ Construit\ le\ second\ vecteur}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num\_vectors++;\ \textcolor{comment}{//\ Incrémente\ le\ nombre\ de\ vecteurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ deux\ vecteurs\ sont\ détectés}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(num\_vectors\ ==\ 2)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\_line\_time}}\ =\ 0;\ \textcolor{comment}{//\ Réinitialise\ le\ temps\ sans\ détection\ de\ ligne}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\_antoine\ =\ (\mbox{\hyperlink{vector__utility_8h_a0c8192d6169a5355dc083c0f88f12b04}{getMiddleAngle}}(average\_vecteurs)\ -\/ctx-\/>\mbox{\hyperlink{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110}{angle\_ref}})*100/\mbox{\hyperlink{velocity_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}};\ \textcolor{comment}{//\ Calcule\ l'angle\ du\ vecteur\ central\ moins\ l'erreur\ statique\ du\ début\ et\ met\ cet\ angle\ en\ \%}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angle\_percent\ =\ angle\_antoine*100.0/15.0;\ \textcolor{comment}{//\ Applique\ un\ premier\ gain\ pour\ augmenter\ les\ petits\ angles}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ steer\_gain\ =\ \mbox{\hyperlink{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51}{gain\_steer}}(fabs(angle\_percent)):1.0;\ \textcolor{comment}{//\ Calcule\ le\ gain\ de\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steer\ =\ \ steer\_gain*angle\_percent;\ \textcolor{comment}{//\ Calcule\ la\ nouvelle\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}angle:\ \%f,\ angle(percent):\ \%f,\ gain:\ \%f,\ steer\ :\ \%f"{}},angle\_antoine,angle\_percent,steer\_gain,steer);\ \textcolor{comment}{//\ Affiche\ les\ informations\ de\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ steer=\ \mbox{\hyperlink{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb}{steer\_saturation}}(steer);\ \textcolor{comment}{//\ Sature\ la\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{prev\_steer}}\ =\ steer;\ \textcolor{comment}{//\ Enregistre\ la\ direction\ actuelle}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ \mbox{\hyperlink{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e}{gain\_speed}}(fabs(x));\ \textcolor{comment}{//\ Calcule\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ \mbox{\hyperlink{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02}{speed\_saturation}}(speed);\ \textcolor{comment}{//\ Sature\ la\ vitesse}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ steer\ =\ steer*\mbox{\hyperlink{velocity_8h_ac4f86b90339f797473f6e49620d4152b}{STEER\_FACTOR}};\ \textcolor{comment}{//\ Applique\ le\ facteur\ de\ direction}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_abc366c6ebd9e37db4779183baed17a7f}{prev\_speed}}\ =\ speed;\ \textcolor{comment}{//\ Enregistre\ la\ vitesse\ actuelle}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ omega\_fwd=speed*\mbox{\hyperlink{velocity_8h_a5a469920b16bb69d617be8fca7a2f1de}{SPEED\_FACTOR}};\ \textcolor{comment}{//\ Calcule\ la\ vitesse\ avant}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ b3rb\_set\_actuators(\&ctx-\/>\mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{actuators}},\ steer,\ omega\_fwd);\ \textcolor{comment}{//\ Met\ à\ jour\ les\ actionneurs}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00186}00186\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00188}00188\ \textcolor{comment}{//\ Plus\ utilisée\ -\/\ Fonction\ pour\ obtenir\ l'angle\ de\ référence\ d'un\ côté}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00189}\mbox{\hyperlink{velocity_8c_a1f7ddbc1fc2a109d2b7cd3409e95d180}{00189}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{velocity_8c_a1f7ddbc1fc2a109d2b7cd3409e95d180}{get\_ref\_angle\_of\_side}}(\mbox{\hyperlink{struct__context}{context}}*\ ctx,\ \mbox{\hyperlink{struct___vecteur}{Vecteur}}\ vecteur)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00190}00190\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{vector__utility_8h_a2765a25668dca15effaf7c5feddd634a}{getVecteurSide}}(vecteur,\ ctx-\/>\mbox{\hyperlink{struct__context_a845cec0a802a628e9cc108fc3ffe97e3}{first\_vector\_middle}})\ ==\ \mbox{\hyperlink{velocity_8h_a0c0ca5341e1f18622b917da882f6abec}{VECTOR\_ON\_THE\_LEFT}})\ ?\ ctx-\/>\mbox{\hyperlink{struct__context_a8e22241314d30997506d8965a9258aff}{first\_vector\_angle\_left}}\ :\ ctx-\/>\mbox{\hyperlink{struct__context_a394716e86d82ae970600d1fb738ebfb6}{first\_vector\_angle\_right}};}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00192}00192\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00195}00195\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ stop(\mbox{\hyperlink{struct__context}{context}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00196}00196\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00197}00197\ \ \ \ \ b3rb\_set\_actuators(\&ctx-\/>\mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{actuators}},\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00198}00198\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00200}00200\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ b3rb\_velocity\_entry\_point(\textcolor{keywordtype}{void}*\ p0,\ \textcolor{keywordtype}{void}*\ p1,\ \textcolor{keywordtype}{void}*\ p2)}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00201}00201\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00202}00202\ \ \ \ \ LOG\_INF(\textcolor{stringliteral}{"{}init"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00203}00203\ \ \ \ \ \mbox{\hyperlink{struct__context}{context}}*\ ctx\ =\ p0;}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00204}00204\ \ \ \ \ ARG\_UNUSED(p1);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00205}00205\ \ \ \ \ ARG\_UNUSED(p2);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00207}00207\ \ \ \ \ init\_b3rb\_vel(ctx);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ synapse\_msgs\_Status\_Mode\ mode\ =\ ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.mode;}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rc\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mode\ ==\ synapse\_msgs\_Status\_Mode\_MODE\_MANUAL)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }k\_poll\_event\ events[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *zros\_sub\_get\_event(\&ctx-\/>sub\_actuators\_manual),}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ rc\ =\ k\_poll(events,\ ARRAY\_SIZE(events),\ K\_MSEC(1000));}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rc\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}not\ receiving\ manual\ actuators"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(mode\ ==\ synapse\_msgs\_Status\_Mode\_MODE\_CMD\_VEL)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }k\_poll\_event\ events[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *zros\_sub\_get\_event(\&ctx-\/>sub\_cmd\_vel),}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ rc\ =\ k\_poll(events,\ ARRAY\_SIZE(events),\ K\_MSEC(1000));}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rc\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}not\ receiving\ cmd\_vel"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }k\_poll\_event\ events[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *zros\_sub\_get\_event(\&ctx-\/>\mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{sub\_pixy\_vector}}),}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ rc\ =\ k\_poll(events,\ ARRAY\_SIZE(events),\ K\_MSEC(1000));}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rc\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}not\ receiving\ pixy\_vector"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (zros\_sub\_update\_available(\&ctx-\/>sub\_status))\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ zros\_sub\_update(\&ctx-\/>sub\_status);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (zros\_sub\_update\_available(\&ctx-\/>sub\_cmd\_vel))\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ zros\_sub\_update(\&ctx-\/>sub\_cmd\_vel);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (zros\_sub\_update\_available(\&ctx-\/>sub\_actuators\_manual))\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ zros\_sub\_update(\&ctx-\/>sub\_actuators\_manual);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (zros\_sub\_update\_available(\&ctx-\/>\mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{sub\_pixy\_vector}}))\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ zros\_sub\_update(\&ctx-\/>\mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{sub\_pixy\_vector}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00253}00253\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ AUTO\_START\ }}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00254}00254\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \#ifdef\ CONFIG\_CEREBRI\_SENSE\_SAFETY}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.safety\ ==\ synapse\_msgs\_Status\_Safety\_SAFETY\_UNSAFE\ \&\&\ ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.mode\ !=\ synapse\_msgs\_Status\_Mode\_MODE\_MANUAL)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.mode\ =\ synapse\_msgs\_Status\_Mode\_MODE\_AUTO;}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.arming\ =\ synapse\_msgs\_Status\_Arming\_ARMING\_ARMED;}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00259}00259\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00260}00260\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ handle\ modes}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rc\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ stop(ctx);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}no\ data,\ stopped"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.arming\ !=\ synapse\_msgs\_Status\_Arming\_ARMING\_ARMED)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ stop(ctx);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}not\ armed,\ stopped"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.mode\ ==\ synapse\_msgs\_Status\_Mode\_MODE\_MANUAL)\ \{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}manual\ mode"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{actuators}}\ =\ ctx-\/>\mbox{\hyperlink{struct__context_a3b84ed55b31b462d78a49b5d48b018eb}{actuators\_manual}};}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(ctx-\/>\mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}.mode\ ==\ synapse\_msgs\_Status\_Mode\_MODE\_AUTO)\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}auto\ mode"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ follow\_line(ctx);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ LOG\_DBG(\textcolor{stringliteral}{"{}cmd\_vel\ mode"{}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ update\_cmd\_vel(ctx);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ publish}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ zros\_pub\_update(\&ctx-\/>\mbox{\hyperlink{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0}{pub\_actuators}});}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00281}00281\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00282}00282\ \}}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00284}\mbox{\hyperlink{velocity_8c_ae12557d90c165ba809128d5c1ee1d4ae}{00284}}\ \mbox{\hyperlink{velocity_8c_ae12557d90c165ba809128d5c1ee1d4ae}{K\_THREAD\_DEFINE}}(b3rb\_velocity,\ \mbox{\hyperlink{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}{MY\_STACK\_SIZE}},}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00285}00285\ \ \ \ \ b3rb\_velocity\_entry\_point,\ \&g\_ctx,\ NULL,\ NULL,}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00286}00286\ \ \ \ \ \mbox{\hyperlink{velocity_8h_af779536d343f909d8fcca2d754555ddd}{MY\_PRIORITY}},\ 0,\ 1000);}
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{velocity_8c_source_l00288}00288\ \textcolor{comment}{/*\ vi:\ ts=4\ sw=4\ et\ */}}
+
+\end{DoxyCode}

@@ -1,0 +1,189 @@
+\doxysection{Référence du fichier src/velocity.c}
+\hypertarget{velocity_8c}{}\label{velocity_8c}\index{src/velocity.c@{src/velocity.c}}
+
+
+Fichier pour la gestion de la conduite automatique.  
+
+
+{\ttfamily \#include "{}velocity.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e}{gain\+\_\+speed}} (double x)
+\begin{DoxyCompactList}\small\item\em Calcule la vitesse en fonction de l\textquotesingle{}angle (en \%). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51}{gain\+\_\+steer}} (double x)
+\begin{DoxyCompactList}\small\item\em Calcule le gain de direction en fonction de l\textquotesingle{}angle (en \%). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8c_a1f7ddbc1fc2a109d2b7cd3409e95d180}{get\+\_\+ref\+\_\+angle\+\_\+of\+\_\+side}} (\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} vecteur)
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}angle de référence du côté. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{velocity_8c_ae12557d90c165ba809128d5c1ee1d4ae}{K\+\_\+\+THREAD\+\_\+\+DEFINE}} (b3rb\+\_\+velocity, \mbox{\hyperlink{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}{MY\+\_\+\+STACK\+\_\+\+SIZE}}, b3rb\+\_\+velocity\+\_\+entry\+\_\+point, \&g\+\_\+ctx, NULL, NULL, \mbox{\hyperlink{velocity_8h_af779536d343f909d8fcca2d754555ddd}{MY\+\_\+\+PRIORITY}}, 0, 1000)
+\item 
+void \mbox{\hyperlink{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6}{print\+\_\+info}} (double steer, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs, int nb\+Vectors, double omega\+\_\+fwd)
+\begin{DoxyCompactList}\small\item\em Affiche les informations. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02}{speed\+\_\+saturation}} (double speed)
+\begin{DoxyCompactList}\small\item\em Sature la vitesse. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb}{steer\+\_\+saturation}} (double steer)
+\begin{DoxyCompactList}\small\item\em Sature la direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier pour la gestion de la conduite automatique. 
+
+\begin{DoxyAuthor}{Auteur}
+Antoine Guillermin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/04-\/18 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+501 
+\end{DoxyVersion}
+
+
+Définition dans le fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e}\label{velocity_8c_ab760cb7b351fb743842a79b5f6c2892e} 
+\index{velocity.c@{velocity.c}!gain\_speed@{gain\_speed}}
+\index{gain\_speed@{gain\_speed}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{gain\_speed()}{gain\_speed()}}
+{\footnotesize\ttfamily double gain\+\_\+speed (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Calcule la vitesse en fonction de l\textquotesingle{}angle (en \%). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Valeur de l\textquotesingle{}angle pour laquelle calculer le gain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le gain de vitesse. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51}\label{velocity_8c_a6f4ce863ba24e95568b6b379d0da9e51} 
+\index{velocity.c@{velocity.c}!gain\_steer@{gain\_steer}}
+\index{gain\_steer@{gain\_steer}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{gain\_steer()}{gain\_steer()}}
+{\footnotesize\ttfamily double gain\+\_\+steer (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Calcule le gain de direction en fonction de l\textquotesingle{}angle (en \%). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Valeur de l\textquotesingle{}angle pour laquelle calculer le gain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le gain de direction. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8c_a1f7ddbc1fc2a109d2b7cd3409e95d180}\label{velocity_8c_a1f7ddbc1fc2a109d2b7cd3409e95d180} 
+\index{velocity.c@{velocity.c}!get\_ref\_angle\_of\_side@{get\_ref\_angle\_of\_side}}
+\index{get\_ref\_angle\_of\_side@{get\_ref\_angle\_of\_side}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{get\_ref\_angle\_of\_side()}{get\_ref\_angle\_of\_side()}}
+{\footnotesize\ttfamily double get\+\_\+ref\+\_\+angle\+\_\+of\+\_\+side (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}]{vecteur }\end{DoxyParamCaption})}
+
+
+
+Obtient l\textquotesingle{}angle de référence du côté. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ctx} & Contexte. \\
+\hline
+{\em vecteur} & Vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}angle de référence du côté. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00189}{189}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8c_ae12557d90c165ba809128d5c1ee1d4ae}\label{velocity_8c_ae12557d90c165ba809128d5c1ee1d4ae} 
+\index{velocity.c@{velocity.c}!K\_THREAD\_DEFINE@{K\_THREAD\_DEFINE}}
+\index{K\_THREAD\_DEFINE@{K\_THREAD\_DEFINE}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{K\_THREAD\_DEFINE()}{K\_THREAD\_DEFINE()}}
+{\footnotesize\ttfamily K\+\_\+\+THREAD\+\_\+\+DEFINE (\begin{DoxyParamCaption}\item[{b3rb\+\_\+velocity}]{,  }\item[{\mbox{\hyperlink{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}{MY\+\_\+\+STACK\+\_\+\+SIZE}}}]{,  }\item[{b3rb\+\_\+velocity\+\_\+entry\+\_\+point}]{,  }\item[{\&}]{g\+\_\+ctx,  }\item[{NULL}]{,  }\item[{NULL}]{,  }\item[{\mbox{\hyperlink{velocity_8h_af779536d343f909d8fcca2d754555ddd}{MY\+\_\+\+PRIORITY}}}]{,  }\item[{0}]{,  }\item[{1000}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6}\label{velocity_8c_a7c81b0b7adb325bafe643ab55e65bcc6} 
+\index{velocity.c@{velocity.c}!print\_info@{print\_info}}
+\index{print\_info@{print\_info}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{print\_info()}{print\_info()}}
+{\footnotesize\ttfamily void print\+\_\+info (\begin{DoxyParamCaption}\item[{double}]{steer,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs,  }\item[{int}]{nb\+Vectors,  }\item[{double}]{omega\+\_\+fwd }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em steer} & Direction. \\
+\hline
+{\em vecteurs} & Vecteurs. \\
+\hline
+{\em nb\+Vectors} & Nombre de vecteurs. \\
+\hline
+{\em omega\+\_\+fwd} & Vitesse avant. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02}\label{velocity_8c_a3b7abbaade478dc7adbc901de63b1b02} 
+\index{velocity.c@{velocity.c}!speed\_saturation@{speed\_saturation}}
+\index{speed\_saturation@{speed\_saturation}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{speed\_saturation()}{speed\_saturation()}}
+{\footnotesize\ttfamily double speed\+\_\+saturation (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+Sature la vitesse. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em speed} & Vitesse à saturer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La vitesse saturée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00067}{67}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb}\label{velocity_8c_ab80fae777a97ad253122bfe2d05e96eb} 
+\index{velocity.c@{velocity.c}!steer\_saturation@{steer\_saturation}}
+\index{steer\_saturation@{steer\_saturation}!velocity.c@{velocity.c}}
+\doxysubsubsection{\texorpdfstring{steer\_saturation()}{steer\_saturation()}}
+{\footnotesize\ttfamily double steer\+\_\+saturation (\begin{DoxyParamCaption}\item[{double}]{steer }\end{DoxyParamCaption})}
+
+
+
+Sature la direction. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em steer} & Direction à saturer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La direction saturée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00056}{56}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+

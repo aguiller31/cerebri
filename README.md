@@ -1,5 +1,16 @@
-# Cerebri
+# Projet Voiture Autonome - NXP Cup 2024
 
-[![Build](https://github.com/CogniPilot/cerebri/actions/workflows/build.yml/badge.svg)](https://github.com/CogniPilot/cerebri/actions/workflows/build.yml)
+## Introduction
 
-See [documentation](https://cognipilot.org/).
+Ce projet concerne le développement d'une voiture autonome, nommée **mrb3rb**, pour participer à la **NXP Cup 2024**. La NXP Cup est une compétition mondiale où des étudiants de différentes universités conçoivent et programment des voitures miniatures pour naviguer sur une piste de course.
+
+
+<p style="text-align: center;" align="center">
+  <img style="    display: block;
+    margin-left: auto;
+    margin-right: auto;" src="file:///D:/antoi/T%C3%A9l%C3%A9chargements/velocity/téléchargement.png" width=10% height=10%>
+  <br />
+<b style="    display: block;
+    margin-left: auto;
+    margin-right: auto; text-align:center;" >INSA Toulouse 2023-2024 - 4ème année : Automatique et Electronique / Systèmes Embarqués<br />Antoine Guillermin, Yorgo Challoub, Florian Cunnac, Paul Gadanho</b>
+</p>

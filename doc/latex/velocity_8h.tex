@@ -1,0 +1,712 @@
+\doxysection{Référence du fichier src/velocity.h}
+\hypertarget{velocity_8h}{}\label{velocity_8h}\index{src/velocity.h@{src/velocity.h}}
+
+
+Fichier d\textquotesingle{}en-\/tête pour la gestion de la conduite automatique.  
+
+
+{\ttfamily \#include "{}casadi/gen/b3rb.\+h"{}}\newline
+{\ttfamily \#include "{}math.\+h"{}}\newline
+{\ttfamily \#include $<$zephyr/logging/log.\+h$>$}\newline
+{\ttfamily \#include $<$zephyr/kernel.\+h$>$}\newline
+{\ttfamily \#include $<$zros/private/zros\+\_\+node\+\_\+struct.\+h$>$}\newline
+{\ttfamily \#include $<$zros/private/zros\+\_\+pub\+\_\+struct.\+h$>$}\newline
+{\ttfamily \#include $<$zros/private/zros\+\_\+sub\+\_\+struct.\+h$>$}\newline
+{\ttfamily \#include $<$zros/zros\+\_\+node.\+h$>$}\newline
+{\ttfamily \#include $<$zros/zros\+\_\+pub.\+h$>$}\newline
+{\ttfamily \#include $<$zros/zros\+\_\+sub.\+h$>$}\newline
+{\ttfamily \#include $<$cerebri/core/casadi.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}mixing.\+h"{}}\newline
+{\ttfamily \#include "{}./vector\+\_\+utility.\+h"{}}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__context}{\+\_\+context}}
+\begin{DoxyCompactList}\small\item\em Structure pour le contexte. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct___d_vecteur}{\+\_\+\+DVecteur}}
+\begin{DoxyCompactList}\small\item\em Structure pour un DVecteur. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct___point}{\+\_\+\+Point}}
+\begin{DoxyCompactList}\small\item\em Structure pour un point. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct___vecteur}{\+\_\+\+Vecteur}}
+\begin{DoxyCompactList}\small\item\em Structure pour un vecteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{velocity_8h_a76de77d410daf16e90bc1281a8208133}{AUTO\+\_\+\+START}}
+\begin{DoxyCompactList}\small\item\em Définit le démarrage automatique. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a24688fc70fd5d6fe90a57e03a34ebc1c}{IMAGE\+\_\+\+HEIGHT}}~51
+\begin{DoxyCompactList}\small\item\em Définit la hauteur de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_aafd9a8a07447ca0c0c79ae00e8e5f7e9}{IMAGE\+\_\+\+WIDTH}}~78
+\begin{DoxyCompactList}\small\item\em Définit la largeur de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a8742c2a5b97bcfe90d7244a8d1748d15}{IMAGE\+\_\+\+WIDTH\+\_\+\+THRESHOLD}}~0
+\begin{DoxyCompactList}\small\item\em Définit le seuil de largeur de l\textquotesingle{}image. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ab383f715933d87ae2719699c5705c4fe}{INCREASE\+\_\+\+STEER\+\_\+\+IF\+\_\+\+NO\+\_\+\+VECTORS}}~5.\+0
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}augmentation de la direction si aucun vecteur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a9b3e15e09bc960db231f40561b03a78b}{INCREASE\+\_\+\+STEER\+\_\+\+IF\+\_\+\+NO\+\_\+\+VECTORS\+\_\+\+THRESHOLD}}~60.\+0
+\begin{DoxyCompactList}\small\item\em Définit le seuil d\textquotesingle{}augmentation de la direction si aucun vecteur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a13902ac92146457d699b7b13f38bb984}{LEFT\+\_\+\+OR\+\_\+\+RIGHT\+\_\+\+COEFF}}~-\/1
+\begin{DoxyCompactList}\small\item\em Définit le coefficient pour le côté gauche ou droit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846
+\begin{DoxyCompactList}\small\item\em Définit la valeur de Pi. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a84edbd3567c0622d9da6378be9271e9d}{MAX\+\_\+\+DISTANCE\+\_\+\+FOR\+\_\+\+SAME\+\_\+\+VECT}}~30
+\begin{DoxyCompactList}\small\item\em Utilisé pour éliminer les vecteurs "{}aberrants"{} lorsqu\textquotesingle{}on calcule les moyennes de m0 et m1, plus la valeur est grande moins il y aura de vecteurs éliminés. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a2675c9e5db64b847086b89e722867653}{MAX\+\_\+\+VECTOR\+\_\+\+ANGLE\+\_\+\+THRESHOLD}}~60
+\begin{DoxyCompactList}\small\item\em Utilisé pour supprimer les vecteurs qui ont un angle supérieur à ceci (en degré). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a06fa257f69dbff32545cc5ab9a4d25b5}{MIN\+\_\+\+VECTOR\+\_\+\+LENGTH}}~20
+\begin{DoxyCompactList}\small\item\em Utilisé pour éliminer les vecteurs inférieurs à cette taille (y1-\/y0), plus la valeur est basse moins il y aura de fusion (-\/1 \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} pas de fusion) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_af779536d343f909d8fcca2d754555ddd}{MY\+\_\+\+PRIORITY}}~4
+\begin{DoxyCompactList}\small\item\em Définit la priorité. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}{MY\+\_\+\+STACK\+\_\+\+SIZE}}~3072
+\begin{DoxyCompactList}\small\item\em Définit la taille de la pile. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\+\_\+\+OF\+\_\+\+VECTS\+\_\+\+TO\+\_\+\+WAIT}}~1
+\begin{DoxyCompactList}\small\item\em Définit le nombre de vecteurs à attendre. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a6221d514b4ea1fcc5462d17110bcbe46}{NO\+\_\+\+LINE\+\_\+\+TIME}}~3500
+\begin{DoxyCompactList}\small\item\em Définit le temps sans ligne. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8}{NO\+\_\+\+VECTOR\+\_\+\+SPEED}}~50.\+0
+\begin{DoxyCompactList}\small\item\em Définit la vitesse sans vecteur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ab1b024d1e4c8f1aa8c7759b6b8d93a9d}{SAME\+\_\+\+VECTOR\+\_\+\+THRESHOLD}}~20
+\begin{DoxyCompactList}\small\item\em Utilisé pour fusionner m0 et m1 s\textquotesingle{}ils sont "{}proches"{}, plus la valeur est basse moins il y aura de fusion (-\/1 \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} pas de fusion). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a5a469920b16bb69d617be8fca7a2f1de}{SPEED\+\_\+\+FACTOR}}~\mbox{\hyperlink{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0}{SPEED\+\_\+\+MAX}}/100.\+0
+\begin{DoxyCompactList}\small\item\em Facteur de vitesse, max speed = 36 et on divise par 100.\+0 car on a un coefficient en \%. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0}{SPEED\+\_\+\+MAX}}~36.\+0
+\begin{DoxyCompactList}\small\item\em Définit la vitesse maximale. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_ac4f86b90339f797473f6e49620d4152b}{STEER\+\_\+\+FACTOR}}~\mbox{\hyperlink{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7}{STEER\+\_\+\+MAX}}/100.\+0
+\begin{DoxyCompactList}\small\item\em Facteur de direction, max steer = 0.\+6 et on divise par 100.\+0 car on a un coefficient en \%. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7}{STEER\+\_\+\+MAX}}~0.\+6
+\begin{DoxyCompactList}\small\item\em Définit la direction maximale. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_a0c0ca5341e1f18622b917da882f6abec}{VECTOR\+\_\+\+ON\+\_\+\+THE\+\_\+\+LEFT}}~1
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Inclut le fichier d\textquotesingle{}en-\/tête pour récupérer le temps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_aabe2f4c791fb7506c1b1fb524e4a14df}{VECTOR\+\_\+\+ON\+\_\+\+THE\+\_\+\+RIGHT}}~0
+\begin{DoxyCompactList}\small\item\em Définit le côté droit pour un vecteur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{velocity_8h_aaa6f04f6f0d7cf1008a53279acf49f07}{WHEEL\+\_\+\+RADIUS}}~34
+\begin{DoxyCompactList}\small\item\em Définit le rayon de la roue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__context}{\+\_\+context}} \mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}}
+\begin{DoxyCompactList}\small\item\em Structure pour le contexte. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct___d_vecteur}{\+\_\+\+DVecteur}} \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}
+\begin{DoxyCompactList}\small\item\em Structure pour un DVecteur. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct___point}{\+\_\+\+Point}} \mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}}
+\begin{DoxyCompactList}\small\item\em Structure pour un point. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct___vecteur}{\+\_\+\+Vecteur}} \mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}
+\begin{DoxyCompactList}\small\item\em Structure pour un vecteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{velocity_8h_abc96458baccdad936e43638a23c511f8}{build\+\_\+coefficients}} (void)
+\begin{DoxyCompactList}\small\item\em Construit les coefficients. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8h_ab760cb7b351fb743842a79b5f6c2892e}{gain\+\_\+speed}} (double x)
+\begin{DoxyCompactList}\small\item\em Calcule la vitesse en fonction de l\textquotesingle{}angle (en \%). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8h_a6f4ce863ba24e95568b6b379d0da9e51}{gain\+\_\+steer}} (double x)
+\begin{DoxyCompactList}\small\item\em Calcule le gain de direction en fonction de l\textquotesingle{}angle (en \%). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8h_a1f7ddbc1fc2a109d2b7cd3409e95d180}{get\+\_\+ref\+\_\+angle\+\_\+of\+\_\+side}} (\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}} vecteur)
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}angle de référence du côté. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{velocity_8h_a4f14ad7099522cbd48ea384f3e35b8f1}{LOG\+\_\+\+MODULE\+\_\+\+REGISTER}} (b3rb\+\_\+velocity, CONFIG\+\_\+\+CEREBRI\+\_\+\+B3\+RB\+\_\+\+LOG\+\_\+\+LEVEL)
+\begin{DoxyCompactList}\small\item\em Enregistre le module de journalisation pour la vitesse b3rb. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{velocity_8h_a7c81b0b7adb325bafe643ab55e65bcc6}{print\+\_\+info}} (double steer, \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} vecteurs, int nb\+Vectors, double omega\+\_\+fwd)
+\begin{DoxyCompactList}\small\item\em Affiche les informations. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8h_a3b7abbaade478dc7adbc901de63b1b02}{speed\+\_\+saturation}} (double speed)
+\begin{DoxyCompactList}\small\item\em Sature la vitesse. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{velocity_8h_ab80fae777a97ad253122bfe2d05e96eb}{steer\+\_\+saturation}} (double steer)
+\begin{DoxyCompactList}\small\item\em Sature la direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{velocity_8h_adfe6a447923fe08f846499693a99da9e}{speeds}} \mbox{[}$\,$\mbox{]} = \{100.\+0,100.\+0,100.\+0,90.\+0, 80.\+0, 80.\+0, 70.\+0, 70.\+0, 60.\+0, 60.\+0, 60.\+0, 60.\+0\}
+\begin{DoxyCompactList}\small\item\em Tableau des valeurs de vitesse. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{velocity_8h_ae681e84221da39fb28ff260603605ef3}{steers}} \mbox{[}$\,$\mbox{]} = \{0.\+30, 0.\+30, 0.\+30, 0.\+30, 0.\+30, 0.\+35, 0.\+40, 0.\+70, 0.\+80, 0.\+85, 0.\+90, 0.\+90\}
+\begin{DoxyCompactList}\small\item\em Tableau des valeurs de gain direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier d\textquotesingle{}en-\/tête pour la gestion de la conduite automatique. 
+
+\begin{DoxyAuthor}{Auteur}
+Antoine Guillermin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/01-\/20 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+501 
+\end{DoxyVersion}
+
+
+Définition dans le fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{velocity_8h_a76de77d410daf16e90bc1281a8208133}\label{velocity_8h_a76de77d410daf16e90bc1281a8208133} 
+\index{velocity.h@{velocity.h}!AUTO\_START@{AUTO\_START}}
+\index{AUTO\_START@{AUTO\_START}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{AUTO\_START}{AUTO\_START}}
+{\footnotesize\ttfamily \#define AUTO\+\_\+\+START}
+
+
+
+Définit le démarrage automatique. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00028}{28}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a24688fc70fd5d6fe90a57e03a34ebc1c}\label{velocity_8h_a24688fc70fd5d6fe90a57e03a34ebc1c} 
+\index{velocity.h@{velocity.h}!IMAGE\_HEIGHT@{IMAGE\_HEIGHT}}
+\index{IMAGE\_HEIGHT@{IMAGE\_HEIGHT}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_HEIGHT}{IMAGE\_HEIGHT}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+HEIGHT~51}
+
+
+
+Définit la hauteur de l\textquotesingle{}image. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_aafd9a8a07447ca0c0c79ae00e8e5f7e9}\label{velocity_8h_aafd9a8a07447ca0c0c79ae00e8e5f7e9} 
+\index{velocity.h@{velocity.h}!IMAGE\_WIDTH@{IMAGE\_WIDTH}}
+\index{IMAGE\_WIDTH@{IMAGE\_WIDTH}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_WIDTH}{IMAGE\_WIDTH}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+WIDTH~78}
+
+
+
+Définit la largeur de l\textquotesingle{}image. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00022}{22}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a8742c2a5b97bcfe90d7244a8d1748d15}\label{velocity_8h_a8742c2a5b97bcfe90d7244a8d1748d15} 
+\index{velocity.h@{velocity.h}!IMAGE\_WIDTH\_THRESHOLD@{IMAGE\_WIDTH\_THRESHOLD}}
+\index{IMAGE\_WIDTH\_THRESHOLD@{IMAGE\_WIDTH\_THRESHOLD}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{IMAGE\_WIDTH\_THRESHOLD}{IMAGE\_WIDTH\_THRESHOLD}}
+{\footnotesize\ttfamily \#define IMAGE\+\_\+\+WIDTH\+\_\+\+THRESHOLD~0}
+
+
+
+Définit le seuil de largeur de l\textquotesingle{}image. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00036}{36}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ab383f715933d87ae2719699c5705c4fe}\label{velocity_8h_ab383f715933d87ae2719699c5705c4fe} 
+\index{velocity.h@{velocity.h}!INCREASE\_STEER\_IF\_NO\_VECTORS@{INCREASE\_STEER\_IF\_NO\_VECTORS}}
+\index{INCREASE\_STEER\_IF\_NO\_VECTORS@{INCREASE\_STEER\_IF\_NO\_VECTORS}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{INCREASE\_STEER\_IF\_NO\_VECTORS}{INCREASE\_STEER\_IF\_NO\_VECTORS}}
+{\footnotesize\ttfamily \#define INCREASE\+\_\+\+STEER\+\_\+\+IF\+\_\+\+NO\+\_\+\+VECTORS~5.\+0}
+
+
+
+Définit l\textquotesingle{}augmentation de la direction si aucun vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00043}{43}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a9b3e15e09bc960db231f40561b03a78b}\label{velocity_8h_a9b3e15e09bc960db231f40561b03a78b} 
+\index{velocity.h@{velocity.h}!INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD@{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}}
+\index{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD@{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}{INCREASE\_STEER\_IF\_NO\_VECTORS\_THRESHOLD}}
+{\footnotesize\ttfamily \#define INCREASE\+\_\+\+STEER\+\_\+\+IF\+\_\+\+NO\+\_\+\+VECTORS\+\_\+\+THRESHOLD~60.\+0}
+
+
+
+Définit le seuil d\textquotesingle{}augmentation de la direction si aucun vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a13902ac92146457d699b7b13f38bb984}\label{velocity_8h_a13902ac92146457d699b7b13f38bb984} 
+\index{velocity.h@{velocity.h}!LEFT\_OR\_RIGHT\_COEFF@{LEFT\_OR\_RIGHT\_COEFF}}
+\index{LEFT\_OR\_RIGHT\_COEFF@{LEFT\_OR\_RIGHT\_COEFF}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{LEFT\_OR\_RIGHT\_COEFF}{LEFT\_OR\_RIGHT\_COEFF}}
+{\footnotesize\ttfamily \#define LEFT\+\_\+\+OR\+\_\+\+RIGHT\+\_\+\+COEFF~-\/1}
+
+
+
+Définit le coefficient pour le côté gauche ou droit. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ae71449b1cc6e6250b91f539153a7a0d3}\label{velocity_8h_ae71449b1cc6e6250b91f539153a7a0d3} 
+\index{velocity.h@{velocity.h}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265358979323846}
+
+
+
+Définit la valeur de Pi. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00021}{21}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a84edbd3567c0622d9da6378be9271e9d}\label{velocity_8h_a84edbd3567c0622d9da6378be9271e9d} 
+\index{velocity.h@{velocity.h}!MAX\_DISTANCE\_FOR\_SAME\_VECT@{MAX\_DISTANCE\_FOR\_SAME\_VECT}}
+\index{MAX\_DISTANCE\_FOR\_SAME\_VECT@{MAX\_DISTANCE\_FOR\_SAME\_VECT}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_DISTANCE\_FOR\_SAME\_VECT}{MAX\_DISTANCE\_FOR\_SAME\_VECT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+DISTANCE\+\_\+\+FOR\+\_\+\+SAME\+\_\+\+VECT~30}
+
+
+
+Utilisé pour éliminer les vecteurs "{}aberrants"{} lorsqu\textquotesingle{}on calcule les moyennes de m0 et m1, plus la valeur est grande moins il y aura de vecteurs éliminés. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00034}{34}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a2675c9e5db64b847086b89e722867653}\label{velocity_8h_a2675c9e5db64b847086b89e722867653} 
+\index{velocity.h@{velocity.h}!MAX\_VECTOR\_ANGLE\_THRESHOLD@{MAX\_VECTOR\_ANGLE\_THRESHOLD}}
+\index{MAX\_VECTOR\_ANGLE\_THRESHOLD@{MAX\_VECTOR\_ANGLE\_THRESHOLD}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_VECTOR\_ANGLE\_THRESHOLD}{MAX\_VECTOR\_ANGLE\_THRESHOLD}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+VECTOR\+\_\+\+ANGLE\+\_\+\+THRESHOLD~60}
+
+
+
+Utilisé pour supprimer les vecteurs qui ont un angle supérieur à ceci (en degré). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00037}{37}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a06fa257f69dbff32545cc5ab9a4d25b5}\label{velocity_8h_a06fa257f69dbff32545cc5ab9a4d25b5} 
+\index{velocity.h@{velocity.h}!MIN\_VECTOR\_LENGTH@{MIN\_VECTOR\_LENGTH}}
+\index{MIN\_VECTOR\_LENGTH@{MIN\_VECTOR\_LENGTH}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_VECTOR\_LENGTH}{MIN\_VECTOR\_LENGTH}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+VECTOR\+\_\+\+LENGTH~20}
+
+
+
+Utilisé pour éliminer les vecteurs inférieurs à cette taille (y1-\/y0), plus la valeur est basse moins il y aura de fusion (-\/1 \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} pas de fusion) 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00031}{31}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_af779536d343f909d8fcca2d754555ddd}\label{velocity_8h_af779536d343f909d8fcca2d754555ddd} 
+\index{velocity.h@{velocity.h}!MY\_PRIORITY@{MY\_PRIORITY}}
+\index{MY\_PRIORITY@{MY\_PRIORITY}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{MY\_PRIORITY}{MY\_PRIORITY}}
+{\footnotesize\ttfamily \#define MY\+\_\+\+PRIORITY~4}
+
+
+
+Définit la priorité. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00064}{64}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2}\label{velocity_8h_ad411dcac8cd42bd8dd200489b2bba5b2} 
+\index{velocity.h@{velocity.h}!MY\_STACK\_SIZE@{MY\_STACK\_SIZE}}
+\index{MY\_STACK\_SIZE@{MY\_STACK\_SIZE}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{MY\_STACK\_SIZE}{MY\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define MY\+\_\+\+STACK\+\_\+\+SIZE~3072}
+
+
+
+Définit la taille de la pile. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00063}{63}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}\label{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6} 
+\index{velocity.h@{velocity.h}!NB\_OF\_VECTS\_TO\_WAIT@{NB\_OF\_VECTS\_TO\_WAIT}}
+\index{NB\_OF\_VECTS\_TO\_WAIT@{NB\_OF\_VECTS\_TO\_WAIT}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{NB\_OF\_VECTS\_TO\_WAIT}{NB\_OF\_VECTS\_TO\_WAIT}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+OF\+\_\+\+VECTS\+\_\+\+TO\+\_\+\+WAIT~1}
+
+
+
+Définit le nombre de vecteurs à attendre. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00033}{33}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a6221d514b4ea1fcc5462d17110bcbe46}\label{velocity_8h_a6221d514b4ea1fcc5462d17110bcbe46} 
+\index{velocity.h@{velocity.h}!NO\_LINE\_TIME@{NO\_LINE\_TIME}}
+\index{NO\_LINE\_TIME@{NO\_LINE\_TIME}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{NO\_LINE\_TIME}{NO\_LINE\_TIME}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+LINE\+\_\+\+TIME~3500}
+
+
+
+Définit le temps sans ligne. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00032}{32}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8}\label{velocity_8h_a09d7ef90d4461b6eca91720abb0c68c8} 
+\index{velocity.h@{velocity.h}!NO\_VECTOR\_SPEED@{NO\_VECTOR\_SPEED}}
+\index{NO\_VECTOR\_SPEED@{NO\_VECTOR\_SPEED}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{NO\_VECTOR\_SPEED}{NO\_VECTOR\_SPEED}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+VECTOR\+\_\+\+SPEED~50.\+0}
+
+
+
+Définit la vitesse sans vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00040}{40}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ab1b024d1e4c8f1aa8c7759b6b8d93a9d}\label{velocity_8h_ab1b024d1e4c8f1aa8c7759b6b8d93a9d} 
+\index{velocity.h@{velocity.h}!SAME\_VECTOR\_THRESHOLD@{SAME\_VECTOR\_THRESHOLD}}
+\index{SAME\_VECTOR\_THRESHOLD@{SAME\_VECTOR\_THRESHOLD}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{SAME\_VECTOR\_THRESHOLD}{SAME\_VECTOR\_THRESHOLD}}
+{\footnotesize\ttfamily \#define SAME\+\_\+\+VECTOR\+\_\+\+THRESHOLD~20}
+
+
+
+Utilisé pour fusionner m0 et m1 s\textquotesingle{}ils sont "{}proches"{}, plus la valeur est basse moins il y aura de fusion (-\/1 \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} pas de fusion). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00035}{35}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a5a469920b16bb69d617be8fca7a2f1de}\label{velocity_8h_a5a469920b16bb69d617be8fca7a2f1de} 
+\index{velocity.h@{velocity.h}!SPEED\_FACTOR@{SPEED\_FACTOR}}
+\index{SPEED\_FACTOR@{SPEED\_FACTOR}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{SPEED\_FACTOR}{SPEED\_FACTOR}}
+{\footnotesize\ttfamily \#define SPEED\+\_\+\+FACTOR~\mbox{\hyperlink{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0}{SPEED\+\_\+\+MAX}}/100.\+0}
+
+
+
+Facteur de vitesse, max speed = 36 et on divise par 100.\+0 car on a un coefficient en \%. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00047}{47}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0}\label{velocity_8h_ad7c86544bbb397ff14a6bb7f288f63a0} 
+\index{velocity.h@{velocity.h}!SPEED\_MAX@{SPEED\_MAX}}
+\index{SPEED\_MAX@{SPEED\_MAX}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{SPEED\_MAX}{SPEED\_MAX}}
+{\footnotesize\ttfamily \#define SPEED\+\_\+\+MAX~36.\+0}
+
+
+
+Définit la vitesse maximale. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00025}{25}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ac4f86b90339f797473f6e49620d4152b}\label{velocity_8h_ac4f86b90339f797473f6e49620d4152b} 
+\index{velocity.h@{velocity.h}!STEER\_FACTOR@{STEER\_FACTOR}}
+\index{STEER\_FACTOR@{STEER\_FACTOR}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{STEER\_FACTOR}{STEER\_FACTOR}}
+{\footnotesize\ttfamily \#define STEER\+\_\+\+FACTOR~\mbox{\hyperlink{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7}{STEER\+\_\+\+MAX}}/100.\+0}
+
+
+
+Facteur de direction, max steer = 0.\+6 et on divise par 100.\+0 car on a un coefficient en \%. 
+
+Inclut le fichier d\textquotesingle{}en-\/tête pour la structure de noeud ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour la structure de publication ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour la structure de souscription ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour le noeud ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour la publication ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour la souscription ZROS. Inclut le fichier d\textquotesingle{}en-\/tête pour le noyau Cerebri. Inclut le fichier d\textquotesingle{}en-\/tête pour les fonctions d\textquotesingle{}entrée/sortie standard. Inclut le fichier d\textquotesingle{}en-\/tête pour les fonctions mathématiques. Inclut le fichier d\textquotesingle{}en-\/tête pour les fonctions de la bibliothèque standard. Inclut le fichier d\textquotesingle{}en-\/tête pour les fonctions de mixage. 
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00061}{61}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7}\label{velocity_8h_af0ca7bdedeb5e23e912736431a00cde7} 
+\index{velocity.h@{velocity.h}!STEER\_MAX@{STEER\_MAX}}
+\index{STEER\_MAX@{STEER\_MAX}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{STEER\_MAX}{STEER\_MAX}}
+{\footnotesize\ttfamily \#define STEER\+\_\+\+MAX~0.\+6}
+
+
+
+Définit la direction maximale. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00024}{24}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_a0c0ca5341e1f18622b917da882f6abec}\label{velocity_8h_a0c0ca5341e1f18622b917da882f6abec} 
+\index{velocity.h@{velocity.h}!VECTOR\_ON\_THE\_LEFT@{VECTOR\_ON\_THE\_LEFT}}
+\index{VECTOR\_ON\_THE\_LEFT@{VECTOR\_ON\_THE\_LEFT}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{VECTOR\_ON\_THE\_LEFT}{VECTOR\_ON\_THE\_LEFT}}
+{\footnotesize\ttfamily \#define VECTOR\+\_\+\+ON\+\_\+\+THE\+\_\+\+LEFT~1}
+
+
+
+\texorpdfstring{$<$}{<} Inclut le fichier d\textquotesingle{}en-\/tête pour récupérer le temps. 
+
+\texorpdfstring{$<$}{<} Inclut le fichier d\textquotesingle{}en-\/tête pour le générateur de b3rb. Inclut le fichier d\textquotesingle{}en-\/tête pour les fonctions mathématiques. Inclut le fichier d\textquotesingle{}en-\/tête pour la journalisation de Zephyr. Définit le côté gauche pour un vecteur. 
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00019}{19}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_aabe2f4c791fb7506c1b1fb524e4a14df}\label{velocity_8h_aabe2f4c791fb7506c1b1fb524e4a14df} 
+\index{velocity.h@{velocity.h}!VECTOR\_ON\_THE\_RIGHT@{VECTOR\_ON\_THE\_RIGHT}}
+\index{VECTOR\_ON\_THE\_RIGHT@{VECTOR\_ON\_THE\_RIGHT}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{VECTOR\_ON\_THE\_RIGHT}{VECTOR\_ON\_THE\_RIGHT}}
+{\footnotesize\ttfamily \#define VECTOR\+\_\+\+ON\+\_\+\+THE\+\_\+\+RIGHT~0}
+
+
+
+Définit le côté droit pour un vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00020}{20}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_aaa6f04f6f0d7cf1008a53279acf49f07}\label{velocity_8h_aaa6f04f6f0d7cf1008a53279acf49f07} 
+\index{velocity.h@{velocity.h}!WHEEL\_RADIUS@{WHEEL\_RADIUS}}
+\index{WHEEL\_RADIUS@{WHEEL\_RADIUS}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{WHEEL\_RADIUS}{WHEEL\_RADIUS}}
+{\footnotesize\ttfamily \#define WHEEL\+\_\+\+RADIUS~34}
+
+
+
+Définit le rayon de la roue. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{velocity_8h_a97411d91623ffbc942a71a9323c887ed}\label{velocity_8h_a97411d91623ffbc942a71a9323c887ed} 
+\index{velocity.h@{velocity.h}!context@{context}}
+\index{context@{context}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{context}{context}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__context}{\+\_\+context}} \mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}}}
+
+
+
+Structure pour le contexte. 
+
+\Hypertarget{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}\label{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d} 
+\index{velocity.h@{velocity.h}!DVecteur@{DVecteur}}
+\index{DVecteur@{DVecteur}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{DVecteur}{DVecteur}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___d_vecteur}{\+\_\+\+DVecteur}} \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}
+
+
+
+Structure pour un DVecteur. 
+
+\Hypertarget{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}\label{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8} 
+\index{velocity.h@{velocity.h}!Point@{Point}}
+\index{Point@{Point}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{Point}{Point}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___point}{\+\_\+\+Point}} \mbox{\hyperlink{velocity_8h_a184fa32e8e7e95b0596d604fc3c645c8}{Point}}}
+
+
+
+Structure pour un point. 
+
+\Hypertarget{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}\label{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07} 
+\index{velocity.h@{velocity.h}!Vecteur@{Vecteur}}
+\index{Vecteur@{Vecteur}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{Vecteur}{Vecteur}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___vecteur}{\+\_\+\+Vecteur}} \mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}
+
+
+
+Structure pour un vecteur. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{velocity_8h_abc96458baccdad936e43638a23c511f8}\label{velocity_8h_abc96458baccdad936e43638a23c511f8} 
+\index{velocity.h@{velocity.h}!build\_coefficients@{build\_coefficients}}
+\index{build\_coefficients@{build\_coefficients}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{build\_coefficients()}{build\_coefficients()}}
+{\footnotesize\ttfamily void build\+\_\+coefficients (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Construit les coefficients. 
+
+\Hypertarget{velocity_8h_ab760cb7b351fb743842a79b5f6c2892e}\label{velocity_8h_ab760cb7b351fb743842a79b5f6c2892e} 
+\index{velocity.h@{velocity.h}!gain\_speed@{gain\_speed}}
+\index{gain\_speed@{gain\_speed}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{gain\_speed()}{gain\_speed()}}
+{\footnotesize\ttfamily double gain\+\_\+speed (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Calcule la vitesse en fonction de l\textquotesingle{}angle (en \%). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Valeur de l\textquotesingle{}angle pour laquelle calculer le gain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le gain de vitesse. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00021}{21}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8h_a6f4ce863ba24e95568b6b379d0da9e51}\label{velocity_8h_a6f4ce863ba24e95568b6b379d0da9e51} 
+\index{velocity.h@{velocity.h}!gain\_steer@{gain\_steer}}
+\index{gain\_steer@{gain\_steer}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{gain\_steer()}{gain\_steer()}}
+{\footnotesize\ttfamily double gain\+\_\+steer (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Calcule le gain de direction en fonction de l\textquotesingle{}angle (en \%). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Valeur de l\textquotesingle{}angle pour laquelle calculer le gain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le gain de direction. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8h_a1f7ddbc1fc2a109d2b7cd3409e95d180}\label{velocity_8h_a1f7ddbc1fc2a109d2b7cd3409e95d180} 
+\index{velocity.h@{velocity.h}!get\_ref\_angle\_of\_side@{get\_ref\_angle\_of\_side}}
+\index{get\_ref\_angle\_of\_side@{get\_ref\_angle\_of\_side}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{get\_ref\_angle\_of\_side()}{get\_ref\_angle\_of\_side()}}
+{\footnotesize\ttfamily double get\+\_\+ref\+\_\+angle\+\_\+of\+\_\+side (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{velocity_8h_a97411d91623ffbc942a71a9323c887ed}{context}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{\mbox{\hyperlink{velocity_8h_a7fa44b8489f62a5ba0e33f180c4d7f07}{Vecteur}}}]{vecteur }\end{DoxyParamCaption})}
+
+
+
+Obtient l\textquotesingle{}angle de référence du côté. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ctx} & Contexte. \\
+\hline
+{\em vecteur} & Vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}angle de référence du côté. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00189}{189}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8h_a4f14ad7099522cbd48ea384f3e35b8f1}\label{velocity_8h_a4f14ad7099522cbd48ea384f3e35b8f1} 
+\index{velocity.h@{velocity.h}!LOG\_MODULE\_REGISTER@{LOG\_MODULE\_REGISTER}}
+\index{LOG\_MODULE\_REGISTER@{LOG\_MODULE\_REGISTER}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_MODULE\_REGISTER()}{LOG\_MODULE\_REGISTER()}}
+{\footnotesize\ttfamily LOG\+\_\+\+MODULE\+\_\+\+REGISTER (\begin{DoxyParamCaption}\item[{b3rb\+\_\+velocity}]{,  }\item[{CONFIG\+\_\+\+CEREBRI\+\_\+\+B3\+RB\+\_\+\+LOG\+\_\+\+LEVEL}]{ }\end{DoxyParamCaption})}
+
+
+
+Enregistre le module de journalisation pour la vitesse b3rb. 
+
+\Hypertarget{velocity_8h_a7c81b0b7adb325bafe643ab55e65bcc6}\label{velocity_8h_a7c81b0b7adb325bafe643ab55e65bcc6} 
+\index{velocity.h@{velocity.h}!print\_info@{print\_info}}
+\index{print\_info@{print\_info}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{print\_info()}{print\_info()}}
+{\footnotesize\ttfamily void print\+\_\+info (\begin{DoxyParamCaption}\item[{double}]{steer,  }\item[{\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}}}]{vecteurs,  }\item[{int}]{nb\+Vectors,  }\item[{double}]{omega\+\_\+fwd }\end{DoxyParamCaption})}
+
+
+
+Affiche les informations. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em steer} & Direction. \\
+\hline
+{\em vecteurs} & Vecteurs. \\
+\hline
+{\em nb\+Vectors} & Nombre de vecteurs. \\
+\hline
+{\em omega\+\_\+fwd} & Vitesse avant. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00030}{30}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8h_a3b7abbaade478dc7adbc901de63b1b02}\label{velocity_8h_a3b7abbaade478dc7adbc901de63b1b02} 
+\index{velocity.h@{velocity.h}!speed\_saturation@{speed\_saturation}}
+\index{speed\_saturation@{speed\_saturation}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{speed\_saturation()}{speed\_saturation()}}
+{\footnotesize\ttfamily double speed\+\_\+saturation (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})}
+
+
+
+Sature la vitesse. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em speed} & Vitesse à saturer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La vitesse saturée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00067}{67}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+\Hypertarget{velocity_8h_ab80fae777a97ad253122bfe2d05e96eb}\label{velocity_8h_ab80fae777a97ad253122bfe2d05e96eb} 
+\index{velocity.h@{velocity.h}!steer\_saturation@{steer\_saturation}}
+\index{steer\_saturation@{steer\_saturation}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{steer\_saturation()}{steer\_saturation()}}
+{\footnotesize\ttfamily double steer\+\_\+saturation (\begin{DoxyParamCaption}\item[{double}]{steer }\end{DoxyParamCaption})}
+
+
+
+Sature la direction. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em steer} & Direction à saturer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La direction saturée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8c_source_l00056}{56}} du fichier \mbox{\hyperlink{velocity_8c_source}{velocity.\+c}}.
+
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{velocity_8h_adfe6a447923fe08f846499693a99da9e}\label{velocity_8h_adfe6a447923fe08f846499693a99da9e} 
+\index{velocity.h@{velocity.h}!speeds@{speeds}}
+\index{speeds@{speeds}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{speeds}{speeds}}
+{\footnotesize\ttfamily const speeds\mbox{[}$\,$\mbox{]} = \{100.\+0,100.\+0,100.\+0,90.\+0, 80.\+0, 80.\+0, 70.\+0, 70.\+0, 60.\+0, 60.\+0, 60.\+0, 60.\+0\}}
+
+
+
+Tableau des valeurs de vitesse. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00070}{70}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{velocity_8h_ae681e84221da39fb28ff260603605ef3}\label{velocity_8h_ae681e84221da39fb28ff260603605ef3} 
+\index{velocity.h@{velocity.h}!steers@{steers}}
+\index{steers@{steers}!velocity.h@{velocity.h}}
+\doxysubsubsection{\texorpdfstring{steers}{steers}}
+{\footnotesize\ttfamily const steers\mbox{[}$\,$\mbox{]} = \{0.\+30, 0.\+30, 0.\+30, 0.\+30, 0.\+30, 0.\+35, 0.\+40, 0.\+70, 0.\+80, 0.\+85, 0.\+90, 0.\+90\}}
+
+
+
+Tableau des valeurs de gain direction. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00069}{69}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+

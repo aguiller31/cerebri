@@ -1,0 +1,429 @@
+\doxysection{Référence de la structure \+\_\+context}
+\hypertarget{struct__context}{}\label{struct__context}\index{\_context@{\_context}}
+
+
+Structure pour le contexte.  
+
+
+
+
+{\ttfamily \#include $<$velocity.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+synapse\+\_\+msgs\+\_\+\+Actuators \mbox{\hyperlink{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}{actuators}}
+\begin{DoxyCompactList}\small\item\em Actionneurs. \end{DoxyCompactList}\item 
+synapse\+\_\+msgs\+\_\+\+Actuators \mbox{\hyperlink{struct__context_a3b84ed55b31b462d78a49b5d48b018eb}{actuators\+\_\+manual}}
+\begin{DoxyCompactList}\small\item\em Actionneurs manuels. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110}{angle\+\_\+ref}}
+\begin{DoxyCompactList}\small\item\em Référence d\textquotesingle{}angle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_ab88440dcffb4e7432364661fbdde56cb}{beta\+\_\+ref}}
+\begin{DoxyCompactList}\small\item\em Référence beta. \end{DoxyCompactList}\item 
+synapse\+\_\+msgs\+\_\+\+Twist \mbox{\hyperlink{struct__context_a904a8586ac25ba8cfd35714c650c25c9}{cmd\+\_\+vel}}
+\begin{DoxyCompactList}\small\item\em Commande de vitesse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \mbox{\hyperlink{struct__context_aa7797cad89c7beb63ec2633e9f950aa0}{first\+\_\+vector}}
+\begin{DoxyCompactList}\small\item\em Premier vecteur. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a8e22241314d30997506d8965a9258aff}{first\+\_\+vector\+\_\+angle\+\_\+left}}
+\begin{DoxyCompactList}\small\item\em Angle du premier vecteur à gauche. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a394716e86d82ae970600d1fb738ebfb6}{first\+\_\+vector\+\_\+angle\+\_\+right}}
+\begin{DoxyCompactList}\small\item\em Angle du premier vecteur à droite. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a845cec0a802a628e9cc108fc3ffe97e3}{first\+\_\+vector\+\_\+middle}}
+\begin{DoxyCompactList}\small\item\em Milieu du premier vecteur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct__context_ad12596657c36b08cdde3eedce3d52e43}{first\+\_\+vector\+\_\+saved}}
+\begin{DoxyCompactList}\small\item\em Premier vecteur sauvegardé. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a06d372d3d458029fe30c1ce0f19a5de9}{head\+\_\+distance\+\_\+ref}}
+\begin{DoxyCompactList}\small\item\em Référence de distance de tête. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40}{nb\+\_\+of\+\_\+vects\+\_\+stored}}
+\begin{DoxyCompactList}\small\item\em Nombre de vecteurs stockés. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{struct__context_ab34b391e5e71610ac139d80280e83172}{no\+\_\+line\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em Temps sans ligne. \end{DoxyCompactList}\item 
+struct zros\+\_\+node \mbox{\hyperlink{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0}{node}}
+\begin{DoxyCompactList}\small\item\em Noeud ZROS. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} \mbox{\hyperlink{struct__context_ad8d65af85447e4c81a3757caacb6d3bc}{old\+Vectors}} \mbox{[}\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\+\_\+\+OF\+\_\+\+VECTS\+\_\+\+TO\+\_\+\+WAIT}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Anciens vecteurs. \end{DoxyCompactList}\item 
+synapse\+\_\+msgs\+\_\+\+Pixy\+Vector \mbox{\hyperlink{struct__context_af77a544b46b121570b9c510da77cdc36}{pixy\+\_\+vector}}
+\begin{DoxyCompactList}\small\item\em Vecteur Pixy. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_abc366c6ebd9e37db4779183baed17a7f}{prev\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em Vitesse précédente. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_aa112e87116e3d351f9b15264931e36c1}{prev\+\_\+steer}}
+\begin{DoxyCompactList}\small\item\em Direction précédente. \end{DoxyCompactList}\item 
+struct zros\+\_\+pub \mbox{\hyperlink{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0}{pub\+\_\+actuators}}
+\begin{DoxyCompactList}\small\item\em Publications. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_a5850fd032d1b68ab894af21713fb4f49}{sigma\+\_\+ref}}
+\begin{DoxyCompactList}\small\item\em Référence sigma. \end{DoxyCompactList}\item 
+synapse\+\_\+msgs\+\_\+\+Status \mbox{\hyperlink{struct__context_aa2acf905c92f724a6061196b32b0b52f}{status}}
+\begin{DoxyCompactList}\small\item\em Statut. \end{DoxyCompactList}\item 
+struct zros\+\_\+sub sub\+\_\+status sub\+\_\+cmd\+\_\+vel sub\+\_\+actuators\+\_\+manual \mbox{\hyperlink{struct__context_aa975ae312af2187e563077f286268123}{sub\+\_\+pixy\+\_\+vector}}
+\begin{DoxyCompactList}\small\item\em Souscriptions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct__context_aa85679eefd3c19f5c2a0cf93fb73c688}{tail\+\_\+distance\+\_\+ref}}
+\begin{DoxyCompactList}\small\item\em Référence de distance de queue. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{struct__context_a82e32c93352bb2c58f7baecd5c778a2a}{wheel\+\_\+base}}
+\begin{DoxyCompactList}\small\item\em Base de la roue. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{struct__context_a11b33a5d37460dea2757ca40db39a808}{wheel\+\_\+radius}}
+\begin{DoxyCompactList}\small\item\em Rayon de la roue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure pour le contexte. 
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00098}{98}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392}\label{struct__context_ab1ede8ccfb9d08dc8fde671aabf1b392} 
+\index{\_context@{\_context}!actuators@{actuators}}
+\index{actuators@{actuators}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{actuators}{actuators}}
+{\footnotesize\ttfamily synapse\+\_\+msgs\+\_\+\+Actuators actuators}
+
+
+
+Actionneurs. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00102}{102}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a3b84ed55b31b462d78a49b5d48b018eb}\label{struct__context_a3b84ed55b31b462d78a49b5d48b018eb} 
+\index{\_context@{\_context}!actuators\_manual@{actuators\_manual}}
+\index{actuators\_manual@{actuators\_manual}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{actuators\_manual}{actuators\_manual}}
+{\footnotesize\ttfamily synapse\+\_\+msgs\+\_\+\+Actuators actuators\+\_\+manual}
+
+
+
+Actionneurs manuels. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00103}{103}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110}\label{struct__context_a74f08c2daf9b6501d26fe6a3ca54d110} 
+\index{\_context@{\_context}!angle\_ref@{angle\_ref}}
+\index{angle\_ref@{angle\_ref}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{angle\_ref}{angle\_ref}}
+{\footnotesize\ttfamily double angle\+\_\+ref}
+
+
+
+Référence d\textquotesingle{}angle. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00123}{123}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_ab88440dcffb4e7432364661fbdde56cb}\label{struct__context_ab88440dcffb4e7432364661fbdde56cb} 
+\index{\_context@{\_context}!beta\_ref@{beta\_ref}}
+\index{beta\_ref@{beta\_ref}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{beta\_ref}{beta\_ref}}
+{\footnotesize\ttfamily double beta\+\_\+ref}
+
+
+
+Référence beta. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00119}{119}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a904a8586ac25ba8cfd35714c650c25c9}\label{struct__context_a904a8586ac25ba8cfd35714c650c25c9} 
+\index{\_context@{\_context}!cmd\_vel@{cmd\_vel}}
+\index{cmd\_vel@{cmd\_vel}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{cmd\_vel}{cmd\_vel}}
+{\footnotesize\ttfamily synapse\+\_\+msgs\+\_\+\+Twist cmd\+\_\+vel}
+
+
+
+Commande de vitesse. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00100}{100}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_aa7797cad89c7beb63ec2633e9f950aa0}\label{struct__context_aa7797cad89c7beb63ec2633e9f950aa0} 
+\index{\_context@{\_context}!first\_vector@{first\_vector}}
+\index{first\_vector@{first\_vector}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{first\_vector}{first\_vector}}
+{\footnotesize\ttfamily \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} first\+\_\+vector}
+
+
+
+Premier vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00114}{114}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a8e22241314d30997506d8965a9258aff}\label{struct__context_a8e22241314d30997506d8965a9258aff} 
+\index{\_context@{\_context}!first\_vector\_angle\_left@{first\_vector\_angle\_left}}
+\index{first\_vector\_angle\_left@{first\_vector\_angle\_left}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{first\_vector\_angle\_left}{first\_vector\_angle\_left}}
+{\footnotesize\ttfamily double first\+\_\+vector\+\_\+angle\+\_\+left}
+
+
+
+Angle du premier vecteur à gauche. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00116}{116}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a394716e86d82ae970600d1fb738ebfb6}\label{struct__context_a394716e86d82ae970600d1fb738ebfb6} 
+\index{\_context@{\_context}!first\_vector\_angle\_right@{first\_vector\_angle\_right}}
+\index{first\_vector\_angle\_right@{first\_vector\_angle\_right}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{first\_vector\_angle\_right}{first\_vector\_angle\_right}}
+{\footnotesize\ttfamily double first\+\_\+vector\+\_\+angle\+\_\+right}
+
+
+
+Angle du premier vecteur à droite. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00117}{117}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a845cec0a802a628e9cc108fc3ffe97e3}\label{struct__context_a845cec0a802a628e9cc108fc3ffe97e3} 
+\index{\_context@{\_context}!first\_vector\_middle@{first\_vector\_middle}}
+\index{first\_vector\_middle@{first\_vector\_middle}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{first\_vector\_middle}{first\_vector\_middle}}
+{\footnotesize\ttfamily double first\+\_\+vector\+\_\+middle}
+
+
+
+Milieu du premier vecteur. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00118}{118}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_ad12596657c36b08cdde3eedce3d52e43}\label{struct__context_ad12596657c36b08cdde3eedce3d52e43} 
+\index{\_context@{\_context}!first\_vector\_saved@{first\_vector\_saved}}
+\index{first\_vector\_saved@{first\_vector\_saved}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{first\_vector\_saved}{first\_vector\_saved}}
+{\footnotesize\ttfamily int first\+\_\+vector\+\_\+saved}
+
+
+
+Premier vecteur sauvegardé. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00115}{115}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a06d372d3d458029fe30c1ce0f19a5de9}\label{struct__context_a06d372d3d458029fe30c1ce0f19a5de9} 
+\index{\_context@{\_context}!head\_distance\_ref@{head\_distance\_ref}}
+\index{head\_distance\_ref@{head\_distance\_ref}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{head\_distance\_ref}{head\_distance\_ref}}
+{\footnotesize\ttfamily double head\+\_\+distance\+\_\+ref}
+
+
+
+Référence de distance de tête. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00121}{121}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40}\label{struct__context_a35db7f84f4cd7cd9b1a9d99f2d5ace40} 
+\index{\_context@{\_context}!nb\_of\_vects\_stored@{nb\_of\_vects\_stored}}
+\index{nb\_of\_vects\_stored@{nb\_of\_vects\_stored}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{nb\_of\_vects\_stored}{nb\_of\_vects\_stored}}
+{\footnotesize\ttfamily int nb\+\_\+of\+\_\+vects\+\_\+stored}
+
+
+
+Nombre de vecteurs stockés. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00112}{112}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_ab34b391e5e71610ac139d80280e83172}\label{struct__context_ab34b391e5e71610ac139d80280e83172} 
+\index{\_context@{\_context}!no\_line\_time@{no\_line\_time}}
+\index{no\_line\_time@{no\_line\_time}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{no\_line\_time}{no\_line\_time}}
+{\footnotesize\ttfamily int64\+\_\+t no\+\_\+line\+\_\+time}
+
+
+
+Temps sans ligne. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00109}{109}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0}\label{struct__context_a49ecc237d427a8fbc9cba4ffd8da4de0} 
+\index{\_context@{\_context}!node@{node}}
+\index{node@{node}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily struct zros\+\_\+node node}
+
+
+
+Noeud ZROS. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00099}{99}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_ad8d65af85447e4c81a3757caacb6d3bc}\label{struct__context_ad8d65af85447e4c81a3757caacb6d3bc} 
+\index{\_context@{\_context}!oldVectors@{oldVectors}}
+\index{oldVectors@{oldVectors}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{oldVectors}{oldVectors}}
+{\footnotesize\ttfamily \mbox{\hyperlink{velocity_8h_ace8a830233e7b71ed46dd03f502ed58d}{DVecteur}} old\+Vectors\mbox{[}\mbox{\hyperlink{velocity_8h_a7f5a8c9bbec8b32d488ebcd470bf80d6}{NB\+\_\+\+OF\+\_\+\+VECTS\+\_\+\+TO\+\_\+\+WAIT}}\mbox{]}}
+
+
+
+Anciens vecteurs. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00113}{113}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_af77a544b46b121570b9c510da77cdc36}\label{struct__context_af77a544b46b121570b9c510da77cdc36} 
+\index{\_context@{\_context}!pixy\_vector@{pixy\_vector}}
+\index{pixy\_vector@{pixy\_vector}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{pixy\_vector}{pixy\_vector}}
+{\footnotesize\ttfamily synapse\+\_\+msgs\+\_\+\+Pixy\+Vector pixy\+\_\+vector}
+
+
+
+Vecteur Pixy. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00104}{104}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_abc366c6ebd9e37db4779183baed17a7f}\label{struct__context_abc366c6ebd9e37db4779183baed17a7f} 
+\index{\_context@{\_context}!prev\_speed@{prev\_speed}}
+\index{prev\_speed@{prev\_speed}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{prev\_speed}{prev\_speed}}
+{\footnotesize\ttfamily double prev\+\_\+speed}
+
+
+
+Vitesse précédente. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00111}{111}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_aa112e87116e3d351f9b15264931e36c1}\label{struct__context_aa112e87116e3d351f9b15264931e36c1} 
+\index{\_context@{\_context}!prev\_steer@{prev\_steer}}
+\index{prev\_steer@{prev\_steer}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{prev\_steer}{prev\_steer}}
+{\footnotesize\ttfamily double prev\+\_\+steer}
+
+
+
+Direction précédente. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00110}{110}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0}\label{struct__context_a1e357f5ea83e64fd1212a416fa5c0fd0} 
+\index{\_context@{\_context}!pub\_actuators@{pub\_actuators}}
+\index{pub\_actuators@{pub\_actuators}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{pub\_actuators}{pub\_actuators}}
+{\footnotesize\ttfamily struct zros\+\_\+pub pub\+\_\+actuators}
+
+
+
+Publications. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00106}{106}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a5850fd032d1b68ab894af21713fb4f49}\label{struct__context_a5850fd032d1b68ab894af21713fb4f49} 
+\index{\_context@{\_context}!sigma\_ref@{sigma\_ref}}
+\index{sigma\_ref@{sigma\_ref}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{sigma\_ref}{sigma\_ref}}
+{\footnotesize\ttfamily double sigma\+\_\+ref}
+
+
+
+Référence sigma. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00120}{120}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_aa2acf905c92f724a6061196b32b0b52f}\label{struct__context_aa2acf905c92f724a6061196b32b0b52f} 
+\index{\_context@{\_context}!status@{status}}
+\index{status@{status}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily synapse\+\_\+msgs\+\_\+\+Status status}
+
+
+
+Statut. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00101}{101}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_aa975ae312af2187e563077f286268123}\label{struct__context_aa975ae312af2187e563077f286268123} 
+\index{\_context@{\_context}!sub\_pixy\_vector@{sub\_pixy\_vector}}
+\index{sub\_pixy\_vector@{sub\_pixy\_vector}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{sub\_pixy\_vector}{sub\_pixy\_vector}}
+{\footnotesize\ttfamily struct zros\+\_\+sub sub\+\_\+status sub\+\_\+cmd\+\_\+vel sub\+\_\+actuators\+\_\+manual sub\+\_\+pixy\+\_\+vector}
+
+
+
+Souscriptions. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00105}{105}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_aa85679eefd3c19f5c2a0cf93fb73c688}\label{struct__context_aa85679eefd3c19f5c2a0cf93fb73c688} 
+\index{\_context@{\_context}!tail\_distance\_ref@{tail\_distance\_ref}}
+\index{tail\_distance\_ref@{tail\_distance\_ref}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{tail\_distance\_ref}{tail\_distance\_ref}}
+{\footnotesize\ttfamily double tail\+\_\+distance\+\_\+ref}
+
+
+
+Référence de distance de queue. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00122}{122}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a82e32c93352bb2c58f7baecd5c778a2a}\label{struct__context_a82e32c93352bb2c58f7baecd5c778a2a} 
+\index{\_context@{\_context}!wheel\_base@{wheel\_base}}
+\index{wheel\_base@{wheel\_base}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{wheel\_base}{wheel\_base}}
+{\footnotesize\ttfamily const double wheel\+\_\+base}
+
+
+
+Base de la roue. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00108}{108}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+\Hypertarget{struct__context_a11b33a5d37460dea2757ca40db39a808}\label{struct__context_a11b33a5d37460dea2757ca40db39a808} 
+\index{\_context@{\_context}!wheel\_radius@{wheel\_radius}}
+\index{wheel\_radius@{wheel\_radius}!\_context@{\_context}}
+\doxysubsubsection{\texorpdfstring{wheel\_radius}{wheel\_radius}}
+{\footnotesize\ttfamily const double wheel\+\_\+radius}
+
+
+
+Rayon de la roue. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{velocity_8h_source_l00107}{107}} du fichier \mbox{\hyperlink{velocity_8h_source}{velocity.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{velocity_8h}{velocity.\+h}}\end{DoxyCompactItemize}
