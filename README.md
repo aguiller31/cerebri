@@ -8,7 +8,7 @@ Ce projet concerne le développement d'une voiture autonome, nommée **mrb3rb**,
 <p style="text-align: center;" align="center">
   <img style="    display: block;
     margin-left: auto;
-    margin-right: auto;" src="file:///D:/antoi/T%C3%A9l%C3%A9chargements/velocity/téléchargement.png" width=10% height=10%>
+    margin-right: auto;" src="https://github.com/aguiller31/cerebri/blob/nxp-cup/doc/assets/logo_INSA.png" width=10% height=10%>
   <br />
 <b style="    display: block;
     margin-left: auto;
